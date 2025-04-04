@@ -5,59 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="logoPT.png">
     <title>Criativa</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            padding: 20px;
-        }
-        div {
-            display: flex;
-            justify-content: center; /* Centraliza na horizontal */
-            align-items: center; /* Centraliza na vertical */
-            height: 100vh; /* Ocupa toda a altura da tela */
-        }
-        
-        .logo {
-            max-width: 150px;
-            margin-bottom: 15px;
-        }
-        .mascote {
-            width: 300px;
-            margin: 20px auto;
-            display: block;
-            transition: transform 0.3s ease-out, filter 0.3s ease-out;
-            animation: flutuar 3s infinite ease-in-out;
-        }
-
-        /* Efeito ao passar o mouse */
-
-
-        /* Animação de flutuação suave */
-        @keyframes flutuar {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-25px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <img src="criativa.png" alt="Logo Criativa" class="logo">
-    <div><img src="mascote.png" alt="Mascote" class="mascote"></div>
-    
-    
+
+<body> 
+    <div id="logo-principal" class="logo"></div>
+    <img src="images/IconeManutenção.svg" alt="Ícone de Manutenção" class="manutencao">
+
 </body>
+
+<script src="scripts/logo.js"></script>
+
 </html>

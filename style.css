@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: block;
+    justify-content: center; /* centraliza na horizontal */
+    align-items: center;     /* centraliza na vertical */
+    background-color: #f0f0f0; /* só pra ficar mais bonito */
+}
+.logo {
+    width: 180px;
+    height: auto;
+    fill: #586569;
+    margin: auto;
+    padding: 10px;
+}
+.manutencao{
+    width: 400px;
+    padding-top: 20px;
+    margin: auto;
+    display: block;
+    animation: flutuar 3s ease-in-out infinite;
+    
+}
+@keyframes flutuar {
+    0%, 100% {
+      transform: translateY(15px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
