@@ -4,12 +4,12 @@ body {
     display: block;
     justify-content: center; /* centraliza na horizontal */
     align-items: center;     /* centraliza na vertical */
-    background-color: #f0f0f0; /* só pra ficar mais bonito */
+    background-color: #FFFFFF; /* só pra ficar mais bonito */
 }
 .logo {
     width: 180px;
     height: auto;
-    fill: #586569;
+    fill: #0057A0;
     margin: auto;
     padding: 10px;
 }
