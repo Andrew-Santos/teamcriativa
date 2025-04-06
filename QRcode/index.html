@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hidden { display: none; }
+        #qrcode { margin: 20px 0; }
+        canvas { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <div id="password-container" class="container">
+        <h2>ACESSO RESTRITO</h2>
+        <input type="password" id="password" placeholder="Digite a senha">
+        <button onclick="checkPassword()">Acessar</button>
+        <p id="error-message" style="color:red;"></p>
+    </div>
+
+    <div id="qr-container" class="hidden container" >
+        <h2>QRCODE</h2>
+        <input type="text" id="url" placeholder="Digite a URL">
+        <button onclick="generateQRCode()">Gerar QR Code</button>
+        <div id="qrcode"></div>
+      </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 12px;
+  width: 50%;
+  border: none;
+  border-radius: 10px;
+  margin: auto;
+  font-size: 16px;
+  display: block;
+}
+
+button {
+  background-color: #ffffff;
+  color: #0072ff;
+  border: none;
+  padding: 12px 25px;
+  margin-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
+
+.hidden {
+  display: none;
+}
+
+#error-message {
+  color: #ffcccb;
+  margin-top: 10px;
+}
+
+#qrcode canvas {
+  margin-top: 20px;
+}
