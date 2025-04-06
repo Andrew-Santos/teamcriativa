@@ -1,7 +1,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-  color: #fff;
+  background: #ffff;
+  color: #ffff;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@ body {
 .container {
   max-width: 90%;
   margin: 100px auto;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #0057A0;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -25,10 +25,13 @@ input[type="password"] {
   margin: auto;
   font-size: 16px;
   display: block;
+  background-color: #F1F1F1;
+
+  
 }
 
 button {
-  background-color: #ffffff;
+  background-color: #FF6B00;
   color: #0072ff;
   border: none;
   padding: 12px 25px;
