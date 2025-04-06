@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 90%;
   margin: 100px auto;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 30px;
@@ -19,7 +19,7 @@ body {
 input[type="text"],
 input[type="password"] {
   padding: 12px;
-  width: 50%;
+  width: 80%;
   border: none;
   border-radius: 10px;
   margin: auto;
