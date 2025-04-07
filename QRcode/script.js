@@ -1,6 +1,41 @@
-document.getElementById("url").addEventListener("keypress", (e) => {
-  if (e.key === "Enter") generateQRCode();
+// Espera o carregamento do DOM para ativar o botão
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn-abrir-gerador");
+  if (btn) {
+    btn.addEventListener("click", abrirGerador);
+  }
 });
+
+// Cria o modal com input e botão para gerar QR
+function abrirGerador() {
+  const modal = document.createElement("div");
+  modal.classList.add("qr-modal");
+
+  modal.innerHTML = `
+    <div class="qr-content">
+      <span class="qr-fechar" title="Fechar" onclick="this.closest('.qr-modal').remove()">✕</span>
+      <h2>Gerar QR Code</h2>
+      <input type="text" id="url" placeholder="Digite a URL">
+      <button id="btn-gerar">Gerar QR Code</button>
+      <div id="qrcode"></div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  // Ativa a animação de entrada
+  setTimeout(() => {
+    modal.classList.add("ativo");
+  }, 50);
+
+  // Aciona geração ao apertar Enter
+  document.getElementById("url").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") generateQRCode();
+  });
+
+  // Aciona ao clicar no botão
+  document.getElementById("btn-gerar").addEventListener("click", generateQRCode);
+}
 
 function generateQRCode() {
   const input = document.getElementById("url");
@@ -9,20 +44,20 @@ function generateQRCode() {
 
   if (!url) return alert("Por favor, insira um link válido.");
 
-  // Limpa container
+  // Limpa o QR anterior
   qrContainer.innerHTML = "";
 
-  // Cria novo QRious
+  // Cria novo QR com QRious
   const qr = new QRious({
     value: url,
     size: 200,
   });
 
-  // Adiciona o canvas do QR ao container
+  // Adiciona imagem
   qrContainer.appendChild(qr.image);
   qrContainer.style.opacity = 0;
 
-  // Transição suave de entrada
+  // Animação suave
   setTimeout(() => {
     qrContainer.style.opacity = 1;
     qrContainer.style.transition = "opacity 0.5s ease-in-out";
@@ -45,18 +80,16 @@ function downloadPDF(url) {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF();
 
-  if (!url) return alert("URL inválida");
-
   const pageWidth = pdf.internal.pageSize.getWidth();
   const qrSize = 175;
   const x = (pageWidth - qrSize) / 2;
   const y = 40;
 
-  // Título (opcional)
+  // Título
   pdf.setFontSize(20);
   pdf.text("QR Code Gerado", pageWidth / 2, 20, { align: "center" });
 
-  // QR Code vetorial
+  // QR Code vetorial com qrcode-generator
   const qr = qrcode(0, 'H');
   qr.addData(url);
   qr.make();
@@ -77,7 +110,7 @@ function downloadPDF(url) {
     }
   }
 
-  // URL abaixo do código
+  // URL abaixo
   pdf.setFontSize(12);
   pdf.text(url, pageWidth / 2, y + qrSize + 10, { align: "center" });
 
