@@ -1,66 +1,67 @@
-const PASSWORD = "9260";
-
-function checkPassword() {
-    const input = document.getElementById("password").value;
-    const error = document.getElementById("error-message");
-    if (input === PASSWORD) {
-        document.getElementById("password-container").classList.add("hidden");
-        document.getElementById("qr-container").classList.remove("hidden");
-        error.textContent = "";
-    } else {
-        error.textContent = "Senha incorreta. Tente novamente.";
-    }
-}
-
-document.getElementById("password").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") checkPassword();
-});
-
 document.getElementById("url").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") generateQRCode();
+  if (e.key === "Enter") generateQRCode();
 });
 
-let qr;
 function generateQRCode() {
-  const url = document.getElementById("url").value;
+  const input = document.getElementById("url");
+  const qrContainer = document.getElementById("qrcode");
+  const url = input.value.trim();
+
   if (!url) return alert("Por favor, insira um link válido.");
 
-  // Exibição opcional do QR Code na tela (não obrigatório para download)
-  const qrContainer = document.getElementById("qrcode");
-  qrContainer.innerHTML = ""; // Limpa antes de adicionar
+  // Limpa container
+  qrContainer.innerHTML = "";
+
+  // Cria novo QRious
   const qr = new QRious({
     value: url,
     size: 200,
   });
-  qrContainer.appendChild(qr.image); // Apenas visual, não afeta o PDF
 
-  // Gera e baixa automaticamente o PDF vetorizado
+  // Adiciona o canvas do QR ao container
+  qrContainer.appendChild(qr.image);
+  qrContainer.style.opacity = 0;
+
+  // Transição suave de entrada
+  setTimeout(() => {
+    qrContainer.style.opacity = 1;
+    qrContainer.style.transition = "opacity 0.5s ease-in-out";
+  }, 50);
+
+  // Mensagem de sucesso
+  const message = document.createElement("p");
+  message.innerText = "QR Code gerado com sucesso!";
+  message.style.color = "#CD533B";
+  message.style.fontWeight = "600";
+  message.style.marginTop = "15px";
+  message.style.fontFamily = "Poppins, sans-serif";
+  qrContainer.appendChild(message);
+
+  // PDF automático
   downloadPDF(url);
 }
-
 
 function downloadPDF(url) {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF();
+
   if (!url) return alert("URL inválida");
 
   const pageWidth = pdf.internal.pageSize.getWidth();
   const qrSize = 175;
   const x = (pageWidth - qrSize) / 2;
+  const y = 40;
 
-  // Título
+  // Título (opcional)
   pdf.setFontSize(20);
+  pdf.text("QR Code Gerado", pageWidth / 2, 20, { align: "center" });
 
-  // URL abaixo do QR
-  pdf.setFontSize(12);
-
-  // Gera QR vetorial com qrcode-generator
+  // QR Code vetorial
   const qr = qrcode(0, 'H');
   qr.addData(url);
   qr.make();
 
   const cellSize = qrSize / qr.getModuleCount();
-  const y = 40;
 
   for (let row = 0; row < qr.getModuleCount(); row++) {
     for (let col = 0; col < qr.getModuleCount(); col++) {
@@ -76,6 +77,9 @@ function downloadPDF(url) {
     }
   }
 
+  // URL abaixo do código
+  pdf.setFontSize(12);
+  pdf.text(url, pageWidth / 2, y + qrSize + 10, { align: "center" });
+
   pdf.save("qr_code.pdf");
 }
-
