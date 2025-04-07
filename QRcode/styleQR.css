@@ -1,5 +1,7 @@
+/* Importação das fontes Google Fonts: Inter e Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap');
 
+/* Definição das cores da paleta */
 :root {
   --black: #000000;
   --white: #ffffff;
@@ -8,12 +10,14 @@
   --gray-light: #696d7d;
 }
 
+/* Reset básico e box sizing para todos os elementos */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Estilo base do body */
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--white);
@@ -24,12 +28,13 @@ body {
   animation: fadeIn 0.8s ease-in;
 }
 
-/* Fade-in animation */
+/* Animação de fade-in para entrada suave do conteúdo */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Estilo do cabeçalho */
 header {
   padding: 20px;
   text-align: center;
@@ -46,6 +51,7 @@ header img:hover {
   transform: scale(1.05);
 }
 
+/* Container principal centralizado */
 .container {
   flex: 1;
   display: flex;
@@ -57,6 +63,7 @@ header img:hover {
   margin: 0 auto;
 }
 
+/* Título principal */
 h1 {
   font-family: 'Poppins', sans-serif;
   font-size: 2rem;
@@ -64,12 +71,14 @@ h1 {
   margin-bottom: 10px;
 }
 
+/* Subtítulo */
 .subtitle {
   font-size: 1rem;
   color: var(--gray-light);
   margin-bottom: 30px;
 }
 
+/* Campo de entrada de texto */
 input[type="text"] {
   width: 100%;
   padding: 12px 16px;
@@ -86,6 +95,7 @@ input[type="text"]:focus {
   outline: none;
 }
 
+/* Botões */
 button {
   background-color: var(--accent);
   color: var(--white);
@@ -103,12 +113,13 @@ button:hover {
   transform: translateY(-2px);
 }
 
+/* QR Code gerado */
 #qrcode {
   margin-top: 30px;
   transition: all 0.3s ease;
 }
 
-/* Footer simples */
+/* Rodapé */
 footer {
   text-align: center;
   padding: 20px;
@@ -116,9 +127,11 @@ footer {
   font-size: 0.9rem;
   color: var(--gray-light);
   border-top: 1px solid #eee;
+  font-family: 'Inter', sans-serif;
+  margin-top: 60px;
 }
 
-/* Acessibilidade extra */
+/* Acessibilidade extra - conteúdo oculto visualmente */
 .visually-hidden {
   position: absolute;
   left: -10000px;
@@ -128,6 +141,7 @@ footer {
   overflow: hidden;
 }
 
+/* Seção com conteúdo SEO */
 .seo-content {
   max-width: 700px;
   margin: 40px auto;
@@ -146,17 +160,19 @@ footer {
 .seo-content p {
   margin-bottom: 20px;
 }
+
+/* Seção "sobre" */
 .sobre {
   max-width: 700px;
   margin: 60px auto 40px;
   padding: 0 20px;
   text-align: center;
-  color: #596475;
+  color: var(--gray-dark);
 }
 
 .sobre h2 {
   font-size: 26px;
-  color: #000;
+  color: var(--black);
   font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
 }
@@ -166,6 +182,8 @@ footer {
   line-height: 1.6;
   font-family: 'Inter', sans-serif;
 }
+
+/* Botão flutuante do WhatsApp */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -184,19 +202,13 @@ footer {
 .whatsapp-float img:hover {
   transform: scale(1.1);
 }
-footer {
-  text-align: center;
-  color: #696d7d;
-  font-size: 14px;
-  margin-top: 60px;
-  padding: 20px 0;
-  font-family: 'Inter', sans-serif;
+
+/* Negrito com cor personalizada */
+strong {
+  color: var(--black);
 }
 
-strong{
-  color: #000000;
-}
-
+/* Responsividade para telas menores */
 @media (max-width: 768px) {
   body {
     padding: 10px;
@@ -245,6 +257,7 @@ strong{
   }
 }
 
+/* Modal de geração de QR Code */
 .qr-modal {
   position: fixed;
   top: 0;
@@ -273,6 +286,7 @@ strong{
   max-width: 400px;
   width: 100%;
   font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
 .qr-fechar {
@@ -281,7 +295,7 @@ strong{
   right: 30px;
   font-size: 24px;
   cursor: pointer;
-  color: #CD533B;
+  color: var(--accent);
 }
 
 .qr-content input {
@@ -299,7 +313,7 @@ strong{
   font-size: 16px;
   border: none;
   border-radius: 10px;
-  background-color: #CD533B;
+  background-color: var(--accent);
   color: white;
   cursor: pointer;
   transition: 0.3s;
@@ -308,3 +322,53 @@ strong{
 .qr-content button:hover {
   background-color: #b24330;
 }
+
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  font-size: 50px;
+  color: var(--accent); /* ou use outra cor da sua paleta como --gray-dark */
+  background-color: white;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+.qr-type-btn {
+  background-color: #cd533b;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-type-btn svg {
+  fill: #ffffff;
+  transition: fill 0.3s ease;
+}
+
+.qr-type-btn:hover {
+  background-color: #b2432d;
+  transform: scale(1.05);
+}
+
+.qr-type-btn.ativo {
+  background-color: #000000;
+}
+.qr-logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
