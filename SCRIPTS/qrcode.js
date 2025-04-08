@@ -10,7 +10,7 @@ function abrirGerador() {
   modal.innerHTML = `
     <div class="qr-content">
       <span class="qr-fechar" title="Fechar" onclick="this.closest('.qr-modal').remove()">✕</span>
-      <img src="../images/logo.svg" alt="Logo" class="qr-logo" >
+      <img src="../IMAGES/logo.svg" alt="Logo" class="qr-logo" >
       <h2>Gerar QR Code</h2>
       <div id="qr-type-select" style="display: flex; gap: 10px; justify-content: center; margin-bottom: 20px;">
         <button class="qr-type-btn ativo" data-type="url" title="URL">
