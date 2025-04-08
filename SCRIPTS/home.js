@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   
   // Faz uma requisição para buscar o arquivo "logo.svg" dentro da pasta "images"
-  fetch("images/logo.svg")
+  fetch("IMAGES/logo.svg")
     
     // Quando a resposta chega, converte o conteúdo do arquivo para texto (string)
     .then(response => response.text())
