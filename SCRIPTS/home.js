@@ -17,3 +17,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Captura e exibe erros no console caso ocorra algum problema ao carregar o SVG
     .catch(error => console.error("Erro ao carregar o SVG:", error));
 });
+

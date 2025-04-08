@@ -5,7 +5,8 @@ body {
     justify-content: center; /* centraliza na horizontal */
     align-items: center;     /* centraliza na vertical */
     background-color: #FFFFFF; /* só pra ficar mais bonito */
-}
+} 
+
 .logo {
     width: 180px;
     height: auto;

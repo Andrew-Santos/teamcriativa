@@ -60,7 +60,7 @@ function atualizarFormulario(tipo) {
       <input type="password" id="password" placeholder="Senha da rede">
     `;
   }
-}
+} 
 
 function generateQRCode(tipo) {
   let valor = "";
