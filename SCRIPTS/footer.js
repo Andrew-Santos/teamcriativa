@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h3>Contato</h3>
                 <a href="https://wa.me/5575988119006" target="_blank">WhatsApp: +55 75 98811-9006</a><br/>
                 <a href="https://instagram.com/mkt.agenciacriativa" target="_blank" aria-label="Instagram"> Instagram: mkt.agenciacriativa</a>
-                <a href="mailto:contato@teamcriativa.com">contato@teamcriativa.com</a>
+                <a href="mailto:contato@teamcriativa.com">atendimento@teamcriativa.com</a>
                 
             </div>
     
