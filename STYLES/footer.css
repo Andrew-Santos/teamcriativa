@@ -1,0 +1,134 @@
+.footer {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    padding: 60px 30px 30px;
+    border-top: 3px solid #cd533b;
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+.footer h3 {
+    font-size: 20px;
+    color: #cd533b;
+    margin-bottom: 15px;
+}
+  
+.footer p,
+.footer a {
+    font-size: 14px;
+    color: #596475;
+    text-decoration: none;
+    line-height: 1.7;
+    transition: color 0.3s ease;
+}
+  
+.footer a:hover {
+    font-weight: bold;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #cd533b;
+    border-radius: 50%;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.social-icons svg {
+    width: 18px;
+    height: 18px;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 50px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    fill: #cd533b;
+    width: 180px;
+}
+
+.quick-tips {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-tips li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #596475;
+    line-height: 1.6;
+}
+
+.quick-tips li strong {
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+    text-align: center;
+    }
+    #divlogo{
+        justify-content: center;    
+    }
+}
+
+.footer .social-links a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #cd533b;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-links a:hover {
+    color: #000000;
+}
+
+.icon-tip {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+#divlogo{
+    display: flex;
+    align-items: center;         /* Alinhamento vertical */
+}
+

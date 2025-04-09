@@ -1,32 +1,51 @@
-body {
-    margin: 0;
-    height: 100vh;
-    display: block;
-    justify-content: center; /* centraliza na horizontal */
-    align-items: center;     /* centraliza na vertical */
-    background-color: #FFFFFF; /* só pra ficar mais bonito */
-} 
+*{
+  margin: 0.5px;
+}
 
-.logo {
-    width: 180px;
-    height: auto;
-    fill: #0057A0;
-    margin: auto;
-    padding: 10px;
+.typewriter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  background-color: #ffffff;
 }
-.manutencao{
-    width: 300px;
-    padding-top: 20px;
-    margin: auto;
-    display: block;
-    animation: flutuar 3s ease-in-out infinite;
-    
+
+#th1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  color: #cd533b;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #cd533b;
+  width: 0ch;
+  animation: typing 3.5s steps(31, end) forwards, blink 0.75s step-end infinite;
+  padding: 10px 20px;
 }
-@keyframes flutuar {
-    0%, 100% {
-      transform: translateY(15px);
-    }
-    50% {
-      transform: translateY(-5px);
-    }
+
+@keyframes typing {
+  from { width: 0ch; }
+  to { width: 25ch; }
+}
+
+
+@keyframes blink {
+  0%, 100% { border-color: #cd533b; }
+  50% { border-color: transparent; }
+}
+
+@media (max-width: 600px) {
+  #th1 {
+    font-size: 1.5rem;
+    animation: typing 3.5s steps(25, end) forwards, blink 0.75s step-end infinite;
+    width: 26ch;
   }
+}
+
+img#manutencao{
+  display: flex;
+  width: 500px;
+  padding: 100px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
