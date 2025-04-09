@@ -1,11 +1,14 @@
 .footer {
     background-color: #ffffff;
     color: #000000;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     padding: 60px 30px 30px;
     border-top: 3px solid #cd533b;
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
     position: relative;
+  }
+  .h3footer{
+    font-family: 'Poppins', sans-serif;
   }
   
 .footer-grid {
@@ -68,15 +71,15 @@
     text-align: center;
     font-size: 13px;
     color: #999;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    fill: #cd533b;
-    width: 180px;
+    color: #cd533b;
+    width: 200px;
 }
 
 .quick-tips {
@@ -129,6 +132,5 @@
 
 #divlogo{
     display: flex;
-    align-items: center;         /* Alinhamento vertical */
+    align-items: center;
 }
-
