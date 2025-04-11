@@ -105,8 +105,7 @@ function sharePhoto() {
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
             navigator.share({
                 files: [file],
-                title: 'Minha Foto',
-                text: 'Dê uma olhada nesta foto que criei!',
+                title: 'Minha Foto - Abril Laranja',
             })
             .then(() => console.log('Compartilhado com sucesso!'))
             .catch((error) => console.error('Erro ao compartilhar', error));
