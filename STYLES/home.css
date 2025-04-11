@@ -6,18 +6,24 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 30vh;
   background-color: #ffffff;
+  margin: 10px 0;
+}
+img#manutencao{
+  display: flex;
+  width: 50vh;
+  padding: 50px 0;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 #th1 {
   font-family: 'Poppins', sans-serif;
-  font-size: 2rem;
   color: #cd533b;
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid #cd533b;
-  width: 0ch;
   animation: typing 3.5s steps(31, end) forwards, blink 0.75s step-end infinite;
   padding: 10px 20px;
 }
@@ -35,17 +41,13 @@
 
 @media (max-width: 600px) {
   #th1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     animation: typing 3.5s steps(25, end) forwards, blink 0.75s step-end infinite;
-    width: 26ch;
+    padding: 0;
+    margin: 0;
+  }
+  img#manutencao{
+    margin: 0;
   }
 }
 
-img#manutencao{
-  display: flex;
-  width: 500px;
-  padding: 100px;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-}
