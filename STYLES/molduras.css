@@ -1,138 +1,132 @@
-/* Mobile first */
+/* Seus estilos permanecem os mesmos */
 *{
     margin: 0;
-}
-body {
     font-family: 'Inter';
-    background: #fefefe;
-    color: #333;
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f4f4;
+    color: black;
     margin: 0;
-    padding: 0;
-    text-align: center;
-    justify-items: center;
-  }
-  
-.logo-principal {
-    width: 200px;
-    margin: 10px auto;
 }
-.th1{
+
+#logo-principal, #logo-instagram{
+    width: 250px;
     margin: 20px auto;
+    color: #596475 !important;
+
+}
+.container {
+    text-align: center;
+    align-items: center;
+}
+h1, h2 {
+    color: #CD533B;
+    font-family: 'Inter';
     font-size: 20px;
-    color: #cd533b;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    margin: 20px auto;
+    
+    
+}
+.story-feed{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin: 20px ;
 
 }
 
-button {
-    flex: 1;
-    padding: 0.7rem;
-    border: 2px solid #cd533b;
-    background: white;
-    color: #cd533b;
-    font-weight: 600;
+label {
+    color: #CD533B;
+    padding: 10px ;
     border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    }
-
-.opcoes {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 30px 5px;
-}
-
-
-
-
-.frameBtn:hover {
-    background: #cd533b;
-    color: white;
-}
-.upload-label {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    margin-bottom: 20px;
     text-align: center;
-    transition: background 0.3s;
-  }
-  
-  .upload-label:hover {
-    background: #cd533b; /* Cor de destaque ao passar o mouse */
-    color: #f5f5f5;
-  }
-  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bolder;
+}
+label:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #AA647B;
+}
+.frames {
+    width: 50%;
 
-
-#box {
+    
+}
+.frame {
+    height: 100px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid ;
+    transition: transform 0.2s;
+}
+.frame:hover, .frame.selected {
+    border-color: #F4909E;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+#canvas {
     width: 100%;
     max-width: 200px;
-    position: relative;
-    margin: 20px auto;
-    border: 0.5px  #cd533b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background-color: #f5f5f5;
-    margin: 30px auto1qz;
-  }
-  
-  .moldura-img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  #compartilhar{
-    margin: 20px auto;
-  }
-  .frameBtn.selecionado {
-    background-color: #cd533b;
-    color: #ffffff;
-    font-weight: bold;
-    border-radius: 6px;
-  }
-  footer{
-    width: 99%;
-  }
-
-  #preview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 15px;
+    background: linear-gradient(60deg, #e0e0e2, #e9eaf7);
+    margin: 20px;
+    display: block;
+    margin: auto;
+    
+}
+button {
+    width: 210px;
+    height: 50px;
+    border: 2px solid #CD533B ;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 17px;
     margin-top: 20px;
-  }
-  
-  #box {
-    position: relative;
-    overflow: hidden;
-    touch-action: none;
-  }
-  
-  /* Imagem do usuário */
-  .user-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    transform-origin: center center;
-    touch-action: none;
-  }
-  
-  /* Moldura por cima */
-  .frame-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
-  }
+    box-shadow: 0 4px #997e87;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+button:active {
+    transform: translateY(6px);
+    box-shadow: 0 3px #AA647B;
+}
 
-  
- 
+#splash { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100vh; 
+    background-color: #ffffff; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000; }
+#splash img { 
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+}
+.loader { 
+    margin-top: 150px; 
+    border: 8px solid rgba(0, 0, 0, 0.1); 
+    border-left-color: #3498db; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    animation: spin 1s linear infinite; 
+    z-index: 1001; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.content { display: none; }
