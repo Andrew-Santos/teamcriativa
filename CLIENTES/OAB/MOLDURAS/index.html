@@ -15,9 +15,6 @@
             color: #DFB1B7;
             margin: 0;
         }
-        svg{
-            width: 100px;
-        }
         .container {
             text-align: center;
             padding: 20px;
@@ -129,33 +126,39 @@
     <div id="splash"><img src="criativavertical.png" alt="Logo"><div class="loader"></div></div>
     
     <!-- Logo centralizada com link -->
-     <img src="" alt="" id="logo">
      
     <div class="container">
-        <a href="https://www.instagram.com/mkt.agenciacriativa/" target="_blank" id="logo-link">
-            <img id="logo">
+        <a href="https://www.instagram.com/mkt.agenciacriativa/?igsh=NDR3c3pqbTEzMTZj" target="_blank" id="logo-link">
+            <img src="criativaazul.png" alt="Logo" id="logo">
         </a>
         
         <label for="photoInput">📸 Escolha sua foto </label>
         <input type="file" id="photoInput" accept="image/*" onchange="loadPhoto(event)" style="display:none;">
 
         <!-- Primeiro conjunto de molduras -->
-        <h2>MOLDURA PARA STORY</h2>
+        <h2>MOLDURA PARA STORIE</h2>
         <div class="frames">
-            <img src="story.png" class="frame" onclick="selectFrame('story.png', '1920')">
-
+            <img src="frame1.png" class="frame" onclick="selectFrame('frame1.png', '1920')">
+            <img src="frame2.png" class="frame" onclick="selectFrame('frame2.png', '1920')">
+            <img src="frame3.png" class="frame" onclick="selectFrame('frame3.png', '1920')">
+            <img src="frame4.png" class="frame" onclick="selectFrame('frame4.png', '1920')">
         </div>
 
         <!-- Segundo conjunto de molduras -->
         <h2>MOLDURA PARA FEED</h2>
         <div class="frames">
-            <img src="feed.png" class="frame" onclick="selectFrame('feed.png', '1350')">
-           
+            <img src="frame5.png" class="frame" onclick="selectFrame('frame5.png', '1350')">
+            <img src="frame6.png" class="frame" onclick="selectFrame('frame6.png', '1350')">
+            <img src="frame7.png" class="frame" onclick="selectFrame('frame7.png', '1350')">
+            <img src="frame8.png" class="frame" onclick="selectFrame('frame8.png', '1350')">
         </div>
 
         <canvas id="canvas" width="1080" height="1920"></canvas>
         <button onclick="sharePhoto()">🚀 Compartilhar </button>
     </div>
+    
+    
+
     <script>
         window.addEventListener("load", () => {
             setTimeout(() => {
@@ -342,16 +345,8 @@
         });
 
     </script>
-    
-    
-    <script src="../../SCRIPTS/molduras.js"></script>
-
-
-    <footer><div id="footer" class="footer"></div></footer>
-    <script src="SCRIPTS/footer.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script>document.addEventListener("DOMContentLoaded", () => {AOS.init();})</script>
-    <script src="SCRIPTS/logo.js"></script>
-
 </body>
 </html>
+
+<!COPY WA CRIATIVA 6.0> 
+<!COPY WA CRIATIVA 6.0> 

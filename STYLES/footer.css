@@ -1,11 +1,12 @@
 .footer {
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     color: #000000;
     font-family: 'Inter', sans-serif;
     padding: 60px 30px 30px;
     border-top: 3px solid #cd533b;
     box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
     position: relative;
+    margin-top: 20px;
   }
   .h3footer{
     font-family: 'Poppins', sans-serif;
