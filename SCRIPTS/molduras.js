@@ -100,7 +100,7 @@ frameImage.onload = () => {
 function sharePhoto() {
     const canvas = document.getElementById('canvas');
     canvas.toBlob(function(blob) {
-        const file = new File([blob], "my-photo.png", { type: "image/png" });
+        const file = new File([blob], "Minha Foto - Abril Laranja.png", { type: "image/png" });
         
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
             navigator.share({
