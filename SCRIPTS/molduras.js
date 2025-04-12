@@ -100,7 +100,7 @@ frameImage.onload = () => {
 function sharePhoto() {
     const canvas = document.getElementById('canvas');
     canvas.toBlob(function(blob) {
-        const file = new File([blob], "Minha Foto - Abril Laranja.jpg", { type: "image/jpg" });
+        const file = new File([blob], "Minha Foto - Abril Laranja.jpeg", { type: "image/jpeg" });
         
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
             navigator.share({
@@ -112,7 +112,7 @@ function sharePhoto() {
         } else {
             alert('Compartilhamento não suportado neste dispositivo.');
         }
-    }, 'image/jpg');
+    }, 'image/jpeg');
 }
 
 
