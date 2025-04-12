@@ -6,23 +6,27 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="footer-grid">
   
             <div data-aos="fade-up" data-aos-delay="100" id="divlogo">
-                <a href="https://www.teamcriativa.com/"><div class="logo-container"> <img id="logo"></div></a>
+                <a href="https://www.teamcriativa.com/" id="link-insta-footer">
+                    <div class="logo-footer"> 
+                        <img id="logo">
+                    </div>
+                </a>
             </div>
     
             <div data-aos="fade-up" data-aos-delay="200">
                 <h3 class="h3footer">Serviços</h3>
-                <a href="#">Estratégia Marketing</a><br/>
-                <a href="#">Performance & Tráfego Pago</a><br/>
-                <a href="#">Branding & Posicionamento</a><br/>
-                <a href="#">Conteúdo & Engajamento</a><br/>
-                <a href="#">Desenvolvimento Digital</a>                
+                    <p class="pfooter">Estratégia Marketing</p>
+                    <p class="pfooter">Performance & Tráfego Pago</p>
+                    <p class="pfooter">Branding & Posicionamento</p>
+                    <p class="pfooter">Conteúdo & Engajamento</p>
+                    <p class="pfooter">Desenvolvimento Digital</p>
             </div>
     
             <div data-aos="fade-up" data-aos-delay="300">
                 <h3 class="h3footer">Contato</h3>
-                <a href="https://wa.me/5575988119006" target="_blank">WhatsApp: +55 75 98811-9006</a><br/>
-                <a href="https://instagram.com/mkt.agenciacriativa" target="_blank" aria-label="Instagram"> Instagram: mkt.agenciacriativa</a>
-                <a href="mailto:contato@teamcriativa.com">atendimento@teamcriativa.com</a>
+                <a class="afooter" href="https://wa.me/5575988119006" target="_blank"><p class="pfooter">WhatsApp: +55 75 98811-9006</p></a>
+                <a class="afooter" href="https://instagram.com/mkt.agenciacriativa" target="_blank" aria-label="Instagram"><p class="pfooter">Instagram: mkt.agenciacriativa</p></a>
+                <a class="afooter" href="mailto:contato@teamcriativa.com"><p class="pfooter">Mail: atendimento@teamcriativa.com</p></a>
                 
             </div>
     
