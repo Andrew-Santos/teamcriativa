@@ -112,7 +112,7 @@ function sharePhoto() {
         } else {
             alert('Compartilhamento não suportado neste dispositivo.');
         }
-    }, 'image/png');
+    }, 'image/jpg');
 }
 
 
