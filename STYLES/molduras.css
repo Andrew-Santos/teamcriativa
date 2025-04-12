@@ -12,6 +12,10 @@ body {
     color: black;
     margin: 0;
 }
+main{
+    width: 70%;
+    margin: auto;
+}
 
 #logo-principal, #logo-instagram{
     width: 180px;
