@@ -1,21 +1,25 @@
 html body #footer {
     background-color: #f4f4f4;
     font-family: 'Inter', sans-serif;
-    padding: 40px 30px 30px;
+    padding:  30px;
     margin-top: 20px;
     box-shadow: 0px -2px 8px rgba(192, 172, 172, 0.788);
     border-radius: 10px;
-    width: 100vw;
+}
+
+html body #footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+html body #footer #divlogo {
+    display: flex;
+    align-items: center;
 }
 
 html body #footer .logo-footer {
     color: #cd533b;
-    width: 200px;
-}
-
-html body #footer #divlogo {
-    display: flex;
-    align-items: center;
+    width: 180px;
 }
 
 html body #footer .logo-footer:hover {
@@ -30,15 +34,9 @@ html body #footer .h3footer {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     color: #cd533b;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-html body #footer .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
-    max-width: 100%;
-}
 
 html body #footer .pfooter,
 html body #footer .afooter {
@@ -47,7 +45,8 @@ html body #footer .afooter {
     text-decoration: none;
     line-height: 1.7;
     transition: color 0.3s ease;
-    display: inline-block;
+    display: block;
+    margin: 0;
 }
 
 html body #footer .afooter:hover {
@@ -58,7 +57,7 @@ html body #footer .footer-bottom {
     text-align: center;
     font-size: 13px;
     color: #999;
-    margin-top: 10px;
+    margin-top: 50px;
 }
 
 html body #footer .quick-tips {

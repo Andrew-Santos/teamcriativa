@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleção de Moldura</title>
-    <link rel="stylesheet" href="../../../STYLES/inicio-dispositivo-movel.css">
-
-    <link rel="stylesheet" href="../../../STYLES/molduras.css">
-    <link rel="stylesheet" href="https://www.teamcriativa.com/STYLES/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="icon" href="../../../IMAGES/icone.svg" type="image/x-icon">
+    <link rel="icon" href="https://www.teamcriativa.com/IMAGES/icone.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://www.teamcriativa.com/STYLES/molduras.css">
     <link rel="stylesheet" href="https://www.teamcriativa.com/STYLES/footer.css">
 
 
@@ -53,20 +51,23 @@
         
         
         <!-- Primeiro conjunto de molduras -->
-        <div class="story-feed">
-            <h2>Story</h2>
-            <h2>Feed</h2>
-        </div>
-
-        <div class="story-feed">
-            <div class="frames">
-                <img src="../../../IMAGES/story.png" class="frame" onclick="selectFrame('../../../IMAGES/story.png', '1920')">
+        <div id="story-feed">
+            <div id="story">
+                <h2>Story</h2>
+                <div class="frames">
+                    <img src="../../../IMAGES/story.png" class="frame" onclick="selectFrame('../../../IMAGES/story.png', '1920')">
+                </div>
+            
             </div>
+            <div id="feed">
+                <h2>Feed</h2>
             
-                <!-- Segundo conjunto de molduras -->
             
-            <div class="frames">
-                <img src="../../../IMAGES/feed.png" class="frame" onclick="selectFrame('../../../IMAGES/feed.png', '1350')">
+                    <!-- Segundo conjunto de molduras -->
+            
+                <div class="frames">
+                    <img src="../../../IMAGES/feed.png" class="frame" onclick="selectFrame('../../../IMAGES/feed.png', '1350')">
+                </div>
             </div>
         </div>
     
@@ -77,14 +78,14 @@
 
     <footer id="footer"></footer>
 
-    <script src="../../../SCRIPTS/inicio-dispositivo-movel.js"></script>    
+    <script src="https://www.teamcriativa.com/SCRIPTS/inicio-dispositivo-movel.js"></script>    
 
-    <script src="../../../SCRIPTS/dispositivo-movel.js"></script>    
-    <script src="../../../SCRIPTS/molduras.js"></script>
+    <script src="https://www.teamcriativa.com/SCRIPTS/dispositivo-movel.js"></script>    
+    <script src="https://www.teamcriativa.com/SCRIPTS/molduras.js"></script>
     <script src="https://www.teamcriativa.com/SCRIPTS/footer.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>document.addEventListener("DOMContentLoaded", () => {AOS.init();})</script>
-    <script src="../../../SCRIPTS/logo.js"></script>
+    <script src="https://www.teamcriativa.com/SCRIPTS/logo.js"></script>
 
       
 

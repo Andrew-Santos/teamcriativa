@@ -1,111 +1,76 @@
-/* Seus estilos permanecem os mesmos */
 *{
     margin: 0;
-    font-family: 'Inter';
 }
-#logo-principal, #logo-instagram{
+
+
+html body main{
+    font-family: 'Poppins', sans-serif;
+    padding: 0 10px;
+    color: rgb(66, 66, 66);
+
+}
+
+html body header#logo-principal, html body header#logo-principal a{
+    color: rgb(66, 66, 66);
     width: 150px;
     margin: 20px auto;
-    color: rgb(53, 53, 53);
 
 }
-main{
-    margin: 20px auto;
-    padding: 20px;
-    color: rgb(53, 53, 53);
-    width: 100vw;
 
-}
-body{
-    width: 100vw;
-}
-body main h1{
-    font-family: 'Poppins';
+html body main h1{
     font-size: 20px;
-    text-align: left;
-    margin-bottom: 15px;
-    color: rgb(53, 53, 53);
-
-
-
-
+    margin-bottom: 20px;
+    text-align: center;
 }
-body main p{
-    text-align: justify;
+
+html body main p{
     font-size: 15px;
-    font-family: 'Poppins';
+    text-indent: 20px;
+    margin-bottom: 10px;
     hyphens: auto;
-    margin-bottom: 15px;
-    text-indent: 20px; /* Ajuste o valor conforme necessário */
-    color: rgb(53, 53, 53);
-
-
-
+    text-align: justify;
 }
 
-main label, main button {
-    display: block ;
+html body main label, html body main button{
+    display: block;
     text-align: center;
-    padding: 15px 0;
-    border: 1px solid #CD533B ;
-    color: black;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 2px #997e87;
-    background-color: #f4f4f4;
-    width: 80vw !important;
-    font-size: 15px;
-    color: rgb(53, 53, 53);
-
     margin: 20px auto;
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    width: 80vw;
+    border: 1px solid #CD533B;
+    border-radius: 8px;
+    box-shadow: 0 2px #997e87;
+    cursor: pointer;
+    font-size: 15px;
+    color: #CD533B;
 }
 
-body main h2 {
-    font-size: 20px;
-    width: 50%;    
+html body main button{
+    margin: 30px auto;
 }
-main .story-feed{
-    display: flex;
+
+html body main div#story-feed{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 4 colunas iguais */
+    gap: 10px; /* espaçamento entre as colunas/linhas (opcional) */
     text-align: center;
-    align-items: center;
-    
+    margin: 20px;
+
 }
 
-
-
-main .frames {
-    width: 50%;
-
-
-    
-}
 main .frame {
     height: 100px;
-    cursor: pointer;
-    border-radius: 15px;
-    border: 1px solid ;
-    transition: transform 0.2s;
-    margin: 10px;
 }
-main .frame:hover, main .frame.selected {
-    border-color: #F4909E;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    transform: scale(1.1);
-}
-main #canvas {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 15px;
-    background: linear-gradient(60deg, #e0e0e2, #e9eaf7);
-    margin: 20px;
+
+html body main canvas#canvas {
     display: block;
     margin: auto;
+    max-width: 250px;
+    border-radius: 10px;
+    align-items: center;
+    background: linear-gradient(60deg, #f4f4f496, #f4f4f4b7);
     
+
 }
-
-
-main .abrir-gerador{
-    width: 100%;
-}
-
 
