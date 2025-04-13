@@ -42,11 +42,21 @@
 
         <h1>Abril Laranja – Mês de Conscientização contra a Crueldade Animal</h1>
 
-        <p>O Abril Laranja é o mês dedicado à conscientização sobre a prevenção da crueldade contra os animais. A <strong>OAB Subseção Feira de Santana</strong>, por meio de sua Comissão de Defesa e Proteção dos Animais, se une a essa campanha para reforçar a importância da denúncia de maus-tratos, da adoção responsável e do compromisso ético com a vida animal.</p>
+        <p class="text">O Abril Laranja é o mês dedicado à conscientização sobre a prevenção da crueldade contra os animais. A <strong>OAB Subseção Feira de Santana</strong>, por meio de sua Comissão de Defesa e Proteção dos Animais, se une a essa campanha para reforçar a importância da denúncia de maus-tratos, da adoção responsável e do compromisso ético com a vida animal.</p>
         
-        <p>Este espaço foi criado para que você também possa participar! Faça o upload da sua foto e personalize com a moldura especial do Abril Laranja. Compartilhe nas redes sociais e ajude a espalhar essa causa com amor e responsabilidade. 🐾 Dê voz a quem não pode falar. Diga não aos maus-tratos.</p>
+        <p class="text">Este espaço foi criado para que você também possa participar! Faça o upload da sua foto e personalize com a moldura especial do Abril Laranja. Compartilhe nas redes sociais e ajude a espalhar essa causa com amor e responsabilidade. 🐾 Dê voz a quem não pode falar. Diga não aos maus-tratos.</p>
         
-        <label for="photoInput">Carregar foto </label>
+        <label for="photoInput">
+            <div class="container-btt">
+                
+                <div class="icon-btt">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image-up-icon lucide-image-up"><path d="M10.3 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10l-3.1-3.1a2 2 0 0 0-2.814.014L6 21"/><path d="m14 19.5 3-3 3 3"/><path d="M17 22v-5.5"/><circle cx="9" cy="9" r="2"/></svg>
+                </div>
+                
+                <p class="icon-btt">Carregar foto</p> 
+            
+            </div>
+        </label>
         <input type="file" id="photoInput" accept="image/*" onchange="loadPhoto(event)" style="display:none;">
         
         
@@ -73,12 +83,14 @@
     
 
         <canvas id="canvas" width="1080" height="1920"></canvas>
-        <button onclick="sharePhoto()"> Compartilhar </button>
+        <button id="btt-compartilhar" onclick="sharePhoto()"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-icon lucide-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" x2="12" y1="2" y2="15"/></svg>
+            <p style="margin-left: 10px; height: 24px; font-family: 'Poppins', sans-serif;" class="icon-btt">Compartilhar</p>
+        </button>
     </main>
 
     <footer id="footer"></footer>
 
-    <script src="https://www.teamcriativa.com/SCRIPTS/inicio-dispositivo-movel.js"></script>    
 
     <script src="https://www.teamcriativa.com/SCRIPTS/dispositivo-movel.js"></script>    
     <script src="https://www.teamcriativa.com/SCRIPTS/molduras.js"></script>
