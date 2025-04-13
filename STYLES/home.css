@@ -1,6 +1,77 @@
 *{
-  margin: 0.5px;
+  margin: 0;}
+
+/* Estiliza o header ocupando toda a altura da tela */
+header {
+  width: 100%;
+  height: 60vh; Altura da tela inteira */
+  position: relative;
+  overflow: hidden;
 }
+
+/* Container do menu com vídeo de fundo */
+#container-menu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Vídeo de fundo do menu */
+#video-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz o vídeo cobrir toda a área */
+  z-index: 0; /* Fica por trás do menu */
+  filter: brightness(0.5); /* Escurece o vídeo para melhorar contraste com o texto */
+}
+
+/* Lista do menu principal */
+#menu-principal {
+  position: relative;
+  z-index: 1; /* Fica acima do vídeo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  list-style: none;
+  height: 100%; /* Ocupa toda a altura do container para centralizar */
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* Garante que fique bonito em telas menores */
+}
+
+/* Itens do menu */
+.lista-menu {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+/* Efeito ao passar o mouse */
+.lista-menu:hover {
+  color: #cd533b; /* Cor de destaque da paleta */
+  transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+/* Responsivo para telas menores */
+@media (max-width: 768px) {
+  #menu-principal {
+    flex-direction: column;
+    gap: 25px;
+    padding-top: 60px;
+  }
+
+  .lista-menu {
+    font-size: 1.2rem;
+  }
+}
+
 
 .typewriter-container {
   display: flex;
@@ -51,3 +122,18 @@ img#manutencao{
   }
 }
 
+/* Estilo para o item da logo dentro da lista */
+#logo-principal {
+  margin-right: 50px; /* Dá um espaço entre a logo e os outros itens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo em SVG ou imagem */
+#logo-principal img,
+#logo-principal svg {
+  height: 50px; /* Altura da logo, ajuste como quiser */
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)); /* Sombrinha pra destacar no vídeo */
+}
