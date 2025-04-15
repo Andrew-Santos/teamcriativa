@@ -6,41 +6,43 @@
     <title>Agência Criativa</title>
     <link rel="stylesheet" href="/STYLES/header.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 
 </head>
 <body>
 
 
-  <header id="header-principal">
-
+  <header id="header-principal" >
   
-    <div id="container-menu">
+    <div id="container-menu"data-aos="fade-right" data-aos-duration="3000">
       <!-- Logo -->
-      <div id="logo-header">
-        <img id="logo" >
+      <div id="logo-header" >
+        <img id="logo" />
       </div>
       <!-- Menu -->
       <ul id="menu-principal">
-        <li class="lista-menu">Home</li>
-        <li class="lista-menu">Serviços</li>
-        <li class="lista-menu">Portfólio</li>
-        <li class="lista-menu">Blog</li>
-        <li class="lista-menu">Contato</li>
+        <li class="lista-menu" >Home</li>
+        <li class="lista-menu" >Serviços</li>
+        <li class="lista-menu" >Portfólio</li>
+        <li class="lista-menu" >Blog</li>
+        <li class="lista-menu" >Contato</li>
       </ul>
     </div>
-    <h1 id="tituto-header" style=" color: #f4f4f4;">Unimos estratégia e marketing para construir marcas sólidas, <span id="destaque-header">memoráveis</span> e alinhadas ao seu propósito</h1>
-
-
-    <div class="video-background" >
-      <video autoplay muted loop  playsinline id="bg-video">
+    
+    <h1 data-aos="fade-left" data-aos-duration="3000" id="tituto-header" style="color: #f4f4f4;">
+      Unimos estratégia e marketing para construir marcas sólidas, 
+      <span id="destaque-header">memoráveis</span> e alinhadas ao seu propósito
+    </h1>
+  
+    <div class="video-background">
+      <video autoplay muted loop playsinline id="bg-video" data-aos="fade-right" data-aos-duration="3000">
         <source src="IMAGES/background.mov" type="video/mp4">
       </video>
-    <div class="video-overlay"></div>
     </div>
-
-
-    </header>
+    
+  </header>
+  
 
     <section class="s1"></section>
     <section class="s2"></section>
@@ -53,6 +55,12 @@
     <!-- Partículas -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="/SCRIPTS/efeitos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      window.onload = function() {
+        AOS.init();
+      };
+    </script>
 
     
 
