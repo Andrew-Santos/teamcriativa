@@ -4,42 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agência Criativa</title>
-    <link rel="stylesheet" href="header.css">
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <link rel="stylesheet" href="/STYLES/header.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
 
-  <!-- Partículas no fundo -->
-  <div id="particles-js"></div>
 
   <header id="header-principal">
-    <video autoplay muted loop id="background-menu">
-      <source src="IMAGES/home.mp4" type="video/mp4">
-    </video> 
-    <div class="overlay"></div>
+
+  
+    <div id="container-menu">
+      <!-- Logo -->
+      <div id="logo-header">
+        <img id="logo" >
+      </div>
+      <!-- Menu -->
+      <ul id="menu-principal">
+        <li class="lista-menu">Home</li>
+        <li class="lista-menu">Serviços</li>
+        <li class="lista-menu">Portfólio</li>
+        <li class="lista-menu">Blog</li>
+        <li class="lista-menu">Contato</li>
+      </ul>
+    </div>
+    <h1 id="tituto-header" style=" color: #f4f4f4;">Transformamos ideias em marcas <span id="destaque-header">inesquecíveis.</span> Design, estratégia e resultado para o seu negócio decolar.</h1>
 
 
-    <!-- Logo -->
-    <div id="logo-hearder">
-      <img id="logo" >
+    <div class="video-background" >
+      <video autoplay muted loop  playsinline id="bg-video">
+        <source src="IMAGES/background.mov" type="video/mp4">
+      </video>
+    <div class="video-overlay"></div>
     </div>
 
-    <!-- Menu -->
-    <ul id="menu-principal">
-      <li class="lista-menu">Home</li>
-      <li class="lista-menu">Serviços</li>
-      <li class="lista-menu">Portfólio</li>
-      <li class="lista-menu">Blog</li>
-      <li class="lista-menu">Contato</li>
-    </ul>
 
     </header>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
+
+    <section class="s1"></section>
+    <section class="s2"></section>
+    <section class="s1"></section>
+    <section class="s2"></section>
+    <section class="s1"></section>
 
 
     <script src="/SCRIPTS/logo.js"></script>
@@ -47,6 +54,9 @@
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
     <script src="/SCRIPTS/efeitos.js"></script>
 
+    
+
 
 </body>
 </html>
+

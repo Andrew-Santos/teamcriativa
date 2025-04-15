@@ -28,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const svg = temp.firstChild;
   
       // Define largura igual à da imagem original, se existir
-      svg.style.width = img.width ? img.width + 'px' : 'auto';
+      //svg.style.width = img.width ? img.width + 'px' : 'auto';
   
       // Define altura (automática ou baseada na imagem original)
-      svg.style.height = img.height ? img.height + 'px' : 'auto';
+      //svg.style.height = img.height ? img.height + 'px' : 'auto';
   
       // Substitui o <img> pelo SVG inline diretamente no DOM
       img.replaceWith(svg);
