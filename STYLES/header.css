@@ -87,11 +87,11 @@ section{
     position: relative;
     z-index: 3 !important;
     font-family: 'Poppins';
-    font-size: 50px;
+    font-size: 30pt;
     color: #f4f4f4 !important;
     text-align: right;
     margin: 100px 100px 0 auto;
-    width: 60vw;
+    width: 65vw;
 }
 
 span#destaque-header{
@@ -102,7 +102,6 @@ span#destaque-header{
     -webkit-background-clip: text;
     color: transparent;
     animation: brilho 3s linear infinite;
-    text-shadow: 0 0 10px rgba(255, 85, 51, 0.6); /* glow */
 }
 span#destaque-header::after{
     content: "";
@@ -111,7 +110,8 @@ span#destaque-header::after{
     right:  0;
     width: 50%;
     height: 3px;
-    background: #cd533b;
+    background: linear-gradient(90deg, #cd533b, #ff8c42, #830606);
+
     border-radius: 2px;
 
 
