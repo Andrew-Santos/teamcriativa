@@ -126,6 +126,18 @@
   transform: translateY(0);
 }
 
+#two-section{
+  height:100vh ; 
+  display: flex; 
+  justify-content: space-evenly;
+  text-align: center; 
+  align-items: center; 
+  flex-flow: column; 
+  font-family: 'Poppins'; 
+  color: #cd533b ; 
+  font-size: 100%;
+}
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
   #one-section {
