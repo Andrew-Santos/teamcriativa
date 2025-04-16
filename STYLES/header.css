@@ -130,6 +130,8 @@ span#destaque-header::after{
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    border-radius: 150px;
+    overflow: hidden;
   }
   
   .video-background video {
