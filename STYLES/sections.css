@@ -29,7 +29,7 @@
   }
   
   /* TÍTULO DESTACADO */
-  #titulo-display-one {
+  #titulo-display-one,h1 {
     font-family: 'Poppins', sans-serif;
     font-size: 3.2rem;
     font-weight: 800;
