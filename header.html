@@ -36,7 +36,7 @@
     <div id="container-central" >
       <h1 id="tituto-header" data-aos="fade-left" data-aos-duration="3000">
         Unimos estratégia e marketing para construir marcas sólidas, 
-        <span id="destaque-header">memoráveis</span> e alinhadas ao seu propósito
+        <span id="destaque-header" class="destaque-geral">memoráveis</span> e alinhadas ao seu propósito
       </h1>
     </div>
   
@@ -48,16 +48,21 @@
     
   </header>
   <section id="one-section">
-    <div id="display-one-left" class="div-one-section" data-animate >
+    <div id="display-one-left" class="div-one-section" data-animate>
       <div id="container-display-one" data-animate>
-        <h2 data-animate id="titulo-display-one">Impulsione seu negócio com estratégia e criatividade</h2>
-        <p data-animate id="paragrafo-display-one">Transformamos ideias em marcas memoráveis. Do design ao tráfego pago, entregamos estratégias criativas que conectam, engajam e convertem, sem enrolação, com resultado.</p>
+        <h2 data-animate id="titulo-display-one">Impulsione seu negócio com <span class="destaque-geral">estratégia</span> e criatividade</h2>
+        <img id="mobile-hero-img" src="IMAGES/ilustração-impulsionar.svg" alt="Ilustração mobile">
+        <p data-animate id="paragrafo-display-one">
+          Transformamos ideias em marcas memoráveis. Do design ao tráfego pago, entregamos <span class="destaque-geral">estratégias criativas</span> que conectam, engajam e convertem, sem enrolação, com resultado.
+        </p>
         <a data-animate href="https://wa.me/5575988119006" class="cta-button">Fale conosco</a>
-      </div></div>
+      </div>
+    </div>
     <div data-animate id="display-one-right" class="div-one-section">
-      <img src="IMAGES/ilustração-impulsionar.svg" alt="" srcset="">
+      <img src="IMAGES/ilustração-impulsionar.svg" alt="">
     </div>
   </section>
+  
   
 
   <section class="s1">
@@ -95,7 +100,11 @@
       }, { threshold: 0.4 });
     
       document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+      
     </script>
+
+    
     
 
     
