@@ -1,0 +1,107 @@
+/* SEÇÃO HERO VISUAL */
+#one-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 6rem 8rem;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f3f6 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* TEXTO E ILUSTRAÇÃO LADO A LADO */
+  .div-one-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* CONTAINER DE TEXTO */
+  #container-display-one {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 600px;
+  }
+  
+  /* TÍTULO DESTACADO */
+  #titulo-display-one {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1e1e1e;
+    background: linear-gradient(to right, #CD533B, #FF7B54);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* PARÁGRAFO MAIS LEVE */
+  #paragrafo-display-one {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #444;
+    opacity: 0.95;
+    text-align: left;
+    max-width: 90%;
+  }
+  
+  /* COLUNA DA ILUSTRAÇÃO */
+  #display-one-right {
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ILUSTRAÇÃO COM LEVE ANIMAÇÃO */
+  #display-one-right img {
+    width: 440px;
+    max-width: 100%;
+    height: auto;
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* ANIMAÇÃO SUAVE */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .cta-button {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #CD533B;
+    border: 2px solid #CD533B;
+    border-radius: 12px;
+    background: transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #CD533B;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(205, 83, 59, 0.2);
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.8s ease-out;
+}
+
+[data-animate].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+

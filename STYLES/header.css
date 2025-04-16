@@ -1,8 +1,16 @@
 *{
     margin: 0;
 }
-section{
+section {
     height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Alinha horizontalmente */
+    align-items: center;     /* Alinha verticalmente */
+}
+
+section img {
+    width: 40vw;
 }
 .s2{
     background-color: #CD533B;
@@ -207,6 +215,9 @@ span#destaque-header::after{
   
     #menu-principal {
       display: none;
+    }
+    section img {
+        width: 90vw;
     }
   
   }
