@@ -1,40 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agência Criativa</title>
+  <link rel="stylesheet" href="/STYLES/header.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="STYLES/home.css">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="STYLES/footer.css">
-  <link rel="icon" href="IMAGES/icone.svg" type="image/x-icon">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KRX3YRPLMB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <link rel="stylesheet" href="/STYLES/sections.css">
+  <link rel="shortcut icon" href="IMAGES/icone.svg" type="image/x-icon">
 
-    gtag('config', 'G-KRX3YRPLMB');
-  </script>
+  <!-- Open Graph atualizado -->
+  <meta property="og:title" content="Agência Criativa - Estratégia, Design e Tráfego Pago">
+  <meta property="og:description" content="Impulsione sua marca com soluções criativas e resultados reais.">
+  <meta property="og:image" content="https://teamcriativa.com/IMAGES/logo.jpg">
+  <meta property="og:url" content="https://teamcriativa.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agência Criativa - Estratégia, Design e Tráfego Pago">
+  <meta name="twitter:description" content="Impulsione sua marca com soluções criativas e resultados reais.">
+  <meta name="twitter:image" content="https://teamcriativa.com/IMAGES/logo.png">
+
+
+
+
 </head>
 <body>
 
-  <div class="typewriter-container">
-    <h1 id="th1">Estamos em desenvolvimento...</h1>
-  </div>
+
+  <header id="header-principal" >
+
   
-  <img src="IMAGES/IconeManutenção.svg" alt="Estamos em manutenção" id="manutencao">
+    <div id="container-menu"data-aos="fade-right" data-aos-duration="3000">
+      <!-- Logo -->
+      <div id="logo-header" >
+        <img id="logo" />
+      </div>
+      <!-- Menu -->
+      <ul id="menu-principal" class="mobile">
+        <li class="lista-menu" >Home</li>
+        <li class="lista-menu" >Serviços</li>
+        <li class="lista-menu" >Portfólio</li>
+        <li class="lista-menu" >Blog</li>
+        <li class="lista-menu" >Contato</li>
+      </ul>
+    </div>
+    <div id="container-central" >
+      <h1 id="tituto-header" data-aos="fade-left" data-aos-duration="3000">
+        Unimos estratégia e marketing para construir marcas sólidas, 
+        <span id="destaque-header" class="destaque-geral">memoráveis</span> e alinhadas ao seu propósito
+      </h1>
+    </div>
+  
+    <div class="video-background">
+      <video autoplay muted loop playsinline id="bg-video" data-aos="fade-right" data-aos-duration="3000">
+        <source src="IMAGES/background.mov" type="video/mp4">
+      </video>
+    </div>
+    
+  </header>
+  <section id="one-section">
+    <div id="display-one-left" class="div-one-section" data-animate>
+      <div id="container-display-one" data-animate>
+        <h2 data-animate id="titulo-display-one">Impulsione seu negócio com <span class="destaque-geral">estratégia</span> e criatividade</h2>
+        <img id="mobile-hero-img" src="IMAGES/ilustração-impulsionar.svg" alt="Ilustração mobile">
+        <p data-animate id="paragrafo-display-one">
+          Transformamos ideias em marcas memoráveis. Do design ao tráfego pago, entregamos <span class="destaque-geral">estratégias criativas</span> que conectam, engajam e convertem, sem enrolação, com resultado.
+        </p>
+        <a data-animate href="https://wa.me/5575988119006" class="cta-button">Fale conosco</a>
+      </div>
+    </div>
+    <div data-animate id="display-one-right" class="div-one-section">
+      <img src="IMAGES/ilustração-impulsionar.svg" alt="">
+    </div>
+  </section>
+  
+  
+
+  <section class="s1" style="display: flex; justify-content: space-around; text-align: center; align-items: center; flex-flow: column; height: 70vh; font-family: 'Poppins'; color: #cd533b ; font-size: 20pt;" >
+    <div data-animate  >
+      <h1 data-animate>Estamos em manutenção...</h1>
+    </div>
+    <img src="IMAGES/animação-vetorizada-manutencao.svg" alt="" srcset=""data-animate>
+  </section>
+   
+
+    <footer id="footer"></footer>
+
+    <script src="https://www.teamcriativa.com/SCRIPTS/footer.js"></script>
 
 
+    <script src="/SCRIPTS/logo.js"></script>
+    <!-- Partículas -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="/SCRIPTS/efeitos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      window.onload = function() {
+        AOS.init();
+      };
+    </script>
+    <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.4 });
+    
+      document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
 
-  <footer id="footer"></footer>
+      
+    </script>
 
-  <script src="https://www.teamcriativa.com/SCRIPTS/footer.js"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", () => {AOS.init();})</script>
-  <script src="https://www.teamcriativa.com/SCRIPTS/logo.js"></script>
+    
+    
+
+    
+
+    
+
 
 </body>
 </html>
+
