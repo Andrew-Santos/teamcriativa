@@ -1,217 +1,460 @@
 *{
-    margin: 0;
+    margin: 0; /* Remove margens padrão de todos os elementos */
+    font-family: 'Poppins'; /* Define a fonte do header */
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+body, html{
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
 }
 
-section img {
-    width: 40vw;
-}
 
 #header-principal{
-    background-color: rgb(0, 0, 0);
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Poppins';
-    position: relative;
-
+    background-color: rgb(0, 0, 0); /* Fundo preto */
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100vh; /* Ocupa 100% da altura da tela (tela cheia) */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse o container */
+    position: relative; /* Necessário para posicionamento absoluto dos filhos */
+   
 }
 
 #container-menu{
-    display: flex;
-    height: 60px;  
-    margin-top: 50px; 
- 
-
+    display: flex; /* Flexbox para layout horizontal */
+    margin-top: 50px; /* Espaço superior */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
 }
 
 #logo-header svg, #logo-header {
-    width: 130px;
-    height: 60px;    
-    color: #f4f4f4;
-    transition: 0.3s;
+    width: 140px; /* Tamanho da logo */
+    height: 100%;    
+    color: #f4f4f4; /* Cor branca */
+    transition: 0.3s; /* Transição suave em interações */
 }
 
 #logo-header{
-    margin-left: 60px;
-    cursor: pointer;
-    z-index: 2;
-
-
+    cursor: pointer; /* Muda cursor para indicar clicável */
+    z-index: 2; /* Fica acima de elementos com menor z-index */
 }
 
 #menu-principal{
-    color: #f4f4f4;
-    list-style: none;
-    padding: 0;
-    display: flex;
-    height: 60px;
-    margin-left: auto;
-    margin-right: 60px;
-    align-items: center;
-
+    color: #f4f4f4; /* Cor do texto */
+    list-style: none; /* Remove marcadores de lista */
+    display: flex; /* Layout em linha */
+    align-items: center; /* Alinha verticalmente os itens */
+    gap: 50px;
 }
 
 .lista-menu{
-    width: 10vw;
-    font-size: 17px;
-    text-align: center;
+    font-size: 1.2em;
     cursor: pointer;
     transition: 0.3s;
     z-index: 2;
-
-
-    
-
 }
 
 #logo-header svg:hover, #logo-header:hover, .lista-menu:hover{
-    color: #CD533B;
+    color: #CD533B; /* Cor ao passar o mouse */
+}
 
+#container-header{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 80%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 100px 0 20px
+}
+#box-titulo{
+    padding: ;
 }
 
 
-
-
-#container-central {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
-    z-index: 2;
-  }
-  
-
-
-#tituto-header{
-    font-family: 'Poppins';
-    font-size: 30pt;
+.titulo-geral{
+    font-size: 35pt;
     font-weight: bold;
-    color: #f4f4f4 !important;
+    color: #f4f4f4 ;
     text-align: right;
-    margin: 0 100px 0 auto;
-    width: 65vw;
-    
-
 }
-
 
 span.destaque-geral{
     font-weight: 700;
-    background: linear-gradient(90deg, #cd533b, #ff8c42, #ffc371);
+    background: linear-gradient(90deg, #cd533b, #ffc371); /* Gradiente para o texto */
     background-size: 200% auto;
     background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: brilho 3s linear infinite;
+    color: transparent; /* Oculta a cor original, mostra só o gradiente */
+    animation: brilho 3s linear infinite; /* Animação de brilho */
 }
-span#destaque-header::after{
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    right:  0;
-    width: 50%;
-    height: 3px;
-    background: linear-gradient(90deg, #cd533b, #ff8c42, #830606);
 
-    border-radius: 2px;
 
+
+#box-video video, #box-video{
+    width: 200px;
+    height: 100%;
 
 }
 
-.video-background {
-    position: absolute;
-    top: 50%;             /* centro vertical */
-    left: 0;              /* grudado à esquerda */
-    transform: translateY(-50%);  /* ajusta verticalmente pro centro exato */
-    width: auto;
-    height: auto;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    border-radius: 150px;
-    overflow: hidden;
-  }
-  
-  .video-background video {
-    width: 20vw;          /* ajuste o tamanho que quiser */
-    height: auto;         /* mantém proporção */
-    object-fit: contain;
-    object-fit: cover;
-    z-index: 0;
-    border-radius: 100px;
 
-  }
-  
-  
 
-  
-  /* Conteúdo sobre o vídeo */
-  #container-menu,
-  #tituto-header {
-    position: relative;
-    z-index: 2; /* 🔼 Fica sobre o vídeo */
-  }
-  @media (max-width: 768px) {
+/* RESPONSIVO PARA TELAS MENORES */
+@media (max-width: 768px) {
 
-    /* GERAL */
     #header-principal {
-        all: unset;
+        all: unset; /* Remove todas as propriedades anteriores */
         background-color: black;
         overflow: hidden;
         height: 90vh;
         display: flex;
         flex-direction: column;
-        position: relative;
-        padding: 0 10px 10px 10px;
+        padding: 20px ;
     }
-  
-    #container-menu {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
+
+    #container-menu{
+        margin: 0;
     }
+    
   
     #logo-header svg, #logo-header {
-      margin: 10px auto;
+      margin:  auto;
       width: 200px;
     }
-  
-    #tituto-header {
-        display: block;
-        font-family: 'Poppins';
-        font-weight: bold;
-        color: #f4f4f4 !important;
-        width: 80vw;
-        font-size: 20pt;
-        text-align: right;
-        margin: 20px auto 0 auto;
-        z-index: 2;
+
+    #container-header{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        
+
     }
-  
-    /* VIDEO FORA DO FUNDO */
-    .video-background {
+
+
+    #box-titulo{
         all: unset;
-        display: block;
-        width: 100vw;
-        margin-top: auto;
-        margin-bottom: 0;
-        z-index: 1;
+        width: 100%;
+        margin: 50px auto;
+        text-align: center;
+        flex: 0;
     }
+    #box-titulo h1{
+        text-align: center;
+        font-size: 23pt;
+    }
+    #box-video{
+        all: unset;
+        align-items: center;
+        flex: 0;
+
+
+    }
+
+    #box-video video{
+        width: 150px;
+        margin: auto;
+    }
+
+
+
+
   
-    .video-background video {
-        width: 40%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 100px;}
-  
+
+
     #menu-principal {
-      display: none;
+      display: none; /* Esconde o menu em telas pequenas */
     }
+
     section img {
-        width: 90vw;
+        width: 90vw; /* Ajusta imagens para telas menores */
     }
-  
+}
+
+/* SEÇÃO HERO VISUAL */
+
+#one-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 5rem 8rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f4f4 100%);
+  overflow: hidden;
+  z-index: 2; /* Sobrepõe o degradê do topo */
+  height: 100vh;
+  width: 100%;
+
+}
+
+
+/* DIVS DE TEXTO E ILUSTRAÇÃO */
+.div-one-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTAINER DE TEXTO */
+#container-display-one {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 600px;
+}
+
+/* TÍTULO DESTACADO */
+.titulo-section-geral {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1e1e1e;
+  background-color: #596475;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Oculta a imagem no desktop */
+#mobile-hero-img {
+  display: none;
+  width: 80%;
+  max-width: 300px;
+  margin: 2rem auto;
+}
+
+/* PARÁGRAFO */
+#paragrafo-display-one {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #696D7D;
+  opacity: 0.95;
+  text-align: left;
+  max-width: 90%;
+}
+
+/* ILUSTRAÇÃO */
+#display-one-right {
+  justify-content: center;
+  align-items: center;
+}
+
+#display-one-right img {
+  width: 440px;
+  max-width: 100%;
+  height: auto;
+  animation: float 5s ease-in-out infinite;
+  filter: drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.1));
+}
+
+/* ANIMAÇÃO FLUTUANTE */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* BOTÃO CTA */
+.cta-button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: #CD533B;
+  border: 2px solid #CD533B;
+  border-radius: 12px;
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #CD533B;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(205, 83, 59, 0.2);
+}
+
+/* ANIMAÇÕES DE ENTRADA */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+[data-animate].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  #one-section {
+    flex-direction: column;
+    padding: 4rem 2rem;
+    gap: 3rem;
+    height: 100% !important;
+
   }
+
+  #container-display-one {
+    align-items: center;
+    text-align: center;
+  }
+
+  #paragrafo-display-one {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  #titulo-display-one {
+    font-size: 2.4rem;
+  }
+
+  #display-one-right img {
+    width: 60vw;
+  }
+  #mobile-hero-img {
+    display: block;
+  }
+
+  /* E oculta a da direita */
+  #display-one-right {
+    display: none;
+  }
+}
+
+/* Seção geral */
+#two-section {
+  background: linear-gradient(145deg, #f4f4f4, #ffffff);
+  text-align: center;
+  padding: 50px;
+  font-family: 'Poppins';
+  width: 100%;
+}
+
+#titulo-section2{
+  display: flex;
+  align-items: center;
+}
+
+#solucoes-marketing h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+/* Container dos boxes */
+.container-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.master-boxes {
+  box-sizing: border-box; /* ISSO resolve o problema */
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 15%;
+  min-width: 250px;
+  flex-shrink: 0;
+  height: 400px;
+  padding: 20px;
+}
+
+/* Hover */
+.master-boxes:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Imagem */
+.image-box {
+    height: 55%;
+    width: 100%;
+}
+
+/* Texto */
+.txt-boxes {
+    height: 45%;
+    font-size: 0.8em;
+
+}
+.txt-boxes h3{
+    margin-bottom: 10px;
   
+
+
+}
+
+.txt-boxes p{
+    color: #52545f;
+
+
+}
+
+
+.image-box img{
+    width: 85%;
+    height: 85%;
+}
+/* MOBILE – scroll lateral */
+/* Aplica estilos apenas em telas com largura máxima de 768px (dispositivos móveis) */
+@media screen and (max-width: 768px) {
+  
+  /* Remove o padding do container #solucoes-marketing para melhor aproveitamento do espaço */
+  #solucoes-marketing {
+    padding: 0;
+    overflow-x: hidden; /* Esconde qualquer conteúdo que ultrapasse horizontalmente */
+
+  }
+
+  /* Configuração do container dos boxes para rolagem lateral */
+  .container-boxes {
+    display: block; /* Temporariamente desative flex para testar */
+    overflow-x: auto; /* Habilita a rolagem horizontal se os itens ultrapassarem a largura */
+    white-space: nowrap; /* Mantém os itens em linha */
+
+
+  }
+
+  /* Define a largura dos boxes individuais para 70% da largura da tela (viewport width) */
+  .master-boxes {
+    display: inline-block;
+    width: 70vw;
+    margin: 50px 0 50px 25px;
+    white-space: normal; /* <-- AQUI RESOLVE O PROBLEMA */
+    vertical-align: top; /* Alinha os blocos corretamente na rolagem horizontal */
+  }
+
+  /* Estilização do título da seção (#titulo-section2) */
+  #titulo-section2 {
+    height: 100vh; /* Ocupa 100% da altura da tela */
+    background-color: #000; /* Fundo preto */
+    padding: 50px; /* Espaçamento interno */
+    color: #f4f4f4 !important; /* Cor do texto branco (com !important para prioridade) */
+  }
+
+  /* Estilo do título (h2) dentro da #titulo-section2 */
+  #titulo-section2 h2 {
+    background-color: #f4f4f4 !important; /* Fundo branco (com !important) */
+    margin: 0; /* Remove margens padrão do h2 */
+  }
+  .txt-boxes p {
+    white-space: normal; /* Garante que o <p> também respeite as quebras */
+  }
+
+
+}

@@ -1,0 +1,111 @@
+/* HEADER Config */
+@media (max-width: 768px) {
+    #header-principal {
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        padding: 20px ;
+    }
+    #container-menu{
+        all: unset;
+        margin:0 auto;
+    }
+    #logo-header svg, #logo-header {
+      margin:  auto;
+      width: 150px;
+    }
+    #container-header{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    #box-titulo{
+        all: unset;
+        margin: 50px auto;
+        flex: 0;
+    }
+    #box-titulo h1{
+        text-align: center;
+        font-size: 2em;
+    }
+    #box-video{
+        all: unset;
+        align-items: center;
+        flex: 0;
+    }
+    #box-video video{
+        width: 150px;
+        margin: auto;
+    }
+    #menu-principal {
+      display: none; /* Esconde o menu em telas pequenas */
+    }
+}
+
+/* ONE SECTION CONFIG */
+@media (max-width: 768px) {
+    #one-section {
+        flex-direction: column;
+        padding: 25px;
+        gap: 3rem;
+        height: 100%;
+    }
+    #container-display-one {
+        align-items: center;
+        text-align: center;
+    }
+    #paragrafo-display-one {
+        text-align: center;
+    }
+    #titulo-display-one {
+        font-size: 2.4rem;
+    }  
+    #display-one-right img {
+        width: 55%;
+    }
+    #mobile-hero-img {
+        display: block;
+    }
+    /* E oculta a da direita */
+    #display-one-right {
+        display: none;
+    }
+}
+
+/* TWO SECTION CONFIG */
+@media screen and (max-width: 768px) {
+    /* Remove o padding do container #solucoes-marketing para melhor aproveitamento do espaço */
+    #two-section {
+        padding: 0;
+        overflow-x: hidden; /* Esconde qualquer conteúdo que ultrapasse horizontalmente */
+    }
+    /* Configuração do container dos boxes para rolagem lateral */
+    .container-boxes {
+        display: block; /* Temporariamente desative flex para testar */
+        overflow-x: auto; /* Habilita a rolagem horizontal se os itens ultrapassarem a largura */
+        white-space: nowrap; /* Mantém os itens em linha */
+    }
+    /* Define a largura dos boxes individuais para 70% da largura da tela (viewport width) */
+    .master-boxes {
+        display: inline-block;
+        width: 70vw;
+        margin: 50px 0 50px 25px;
+        white-space: normal; /* <-- AQUI RESOLVE O PROBLEMA */
+        vertical-align: top; /* Alinha os blocos corretamente na rolagem horizontal */
+    }
+    /* Estilização do título da seção (#titulo-section2) */
+    #titulo-section {
+        height: 120vh; /* Ocupa 100% da altura da tela */
+        background-color: #000 ; /* Fundo preto */
+        padding: 50px; /* Espaçamento interno */
+    }
+    /* Estilo do título (h2) dentro da #titulo-section2 */
+    #titulo-section h2 {
+        background-color: #f4f4f4 !important; /* Fundo branco (com !important) */
+        margin: 0; /* Remove margens padrão do h2 */
+    }
+    .txt-boxes p {
+        white-space: normal; /* Garante que o <p> também respeite as quebras */
+    }
+  }
+  

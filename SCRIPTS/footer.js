@@ -45,6 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
             © ${new Date().getFullYear()} Agência Criativa — Todos os direitos reservados.
         </div>
     `;
-    AOS.refresh();
+    
 
   });

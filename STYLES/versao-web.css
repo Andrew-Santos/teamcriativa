@@ -1,0 +1,210 @@
+/* Configurações Gerais */
+*{
+    margin: 0; /* Remove margens padrão de todos os elementos */
+    font-family: 'Poppins'; /* Define a fonte do header */
+    padding: 0;
+    box-sizing: border-box;
+}
+body, html{
+    width: 100%;
+}
+
+/* HEADER Configurações */
+#header-principal{
+    background-color: rgb(0, 0, 0); /* Fundo preto */
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: 100vh; /* Ocupa 100% da altura da tela (tela cheia) */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse o container */   
+}
+#container-menu{
+    display: flex; /* Flexbox para layout horizontal */
+    margin-top: 50px; /* Espaço superior */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+#logo-header svg {
+    width: 140px; /* Tamanho da logo */
+    height: 100%;    
+    color: #f4f4f4; /* Cor branca */
+    transition: 0.3s; /* Transição suave em interações */
+    display: block;
+    cursor: pointer; /* Muda cursor para indicar clicável */
+}
+#menu-principal{
+    color: #f4f4f4; /* Cor do texto */
+    list-style: none; /* Remove marcadores de lista */
+    display: flex; /* Layout em linha */
+    align-items: center; /* Alinha verticalmente os itens */
+    gap: 50px;
+}
+.lista-menu{
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#logo-header svg:hover, .lista-menu:hover{
+    color: #CD533B; /* Cor ao passar o mouse */
+}
+#container-header{
+    display: flex;
+    flex-direction: row-reverse;
+    height: 80%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 100px 0 30px
+}
+.titulo-geral{
+    font-size: 3em;
+    font-weight: bold;
+    color: #f4f4f4 ;
+    text-align: right;
+}
+span.destaque-geral{
+    background: linear-gradient(90deg, #cd533b, #ffc371); /* Gradiente para o texto */
+    background-size: 200% auto;
+    background-clip: text;
+    color: transparent; /* Oculta a cor original, mostra só o gradiente */
+    animation: brilho 3s linear infinite; /* Animação de brilho */
+}
+#box-video video, #box-video{
+    width: 200px;
+    height: 100%;
+}
+
+/* ONE SECTION CONFIG */
+#one-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background: linear-gradient(135deg, #ffffff 0%, #f4f4f4 100%);
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+.div-one-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#container-display-one {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 600px;
+}
+.titulo-section-geral {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1e1e1e;
+    background-color: #596475;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#mobile-hero-img {
+    display: none;
+    width: 80%;
+    max-width: 300px;
+    margin: 2rem auto;
+}
+#paragrafo-display-one {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #696D7D;
+    opacity: 0.95;
+    text-align: left;
+    max-width: 90%;
+}
+#display-one-right {
+    justify-content: center;
+    align-items: center;
+}
+#display-one-right img {
+    width: 440px;
+    max-width: 100%;
+    height: auto;
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.1));
+}
+.cta-button {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #CD533B;
+    border: 2px solid #CD533B;
+    border-radius: 12px;
+    background: transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* TWO SECTION CONFIG */
+#two-section {
+    background: linear-gradient(145deg, #f4f4f4, #ffffff);
+    overflow: hidden;
+    text-align: center;
+    padding: 50px;
+    font-family: 'Poppins';
+    width: 100%;
+}
+#titulo-section{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#two-section h2 {
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-inline: auto;
+}
+.container-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.master-boxes {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 15%;
+    min-width: 250px;
+    flex-shrink: 0;
+    height: 400px;
+    padding: 20px;
+}
+.master-boxes:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+}
+.image-box {
+    height: 55%;
+    width: 100%;
+}
+.txt-boxes {
+    height: 45%;
+    font-size: 0.8em;
+}
+.txt-boxes h3{
+    margin-bottom: 10px;
+}
+.txt-boxes p{
+    color: #52545f;
+}
+.image-box img{
+    width: 85%;
+    height: 85%;
+}

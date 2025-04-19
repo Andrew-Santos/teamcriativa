@@ -2,7 +2,6 @@ html body #footer {
     background-color: #f4f4f4;
     font-family: 'Inter', sans-serif;
     padding:  30px;
-    margin-top: 20px;
     box-shadow: 0px -2px 8px rgba(192, 172, 172, 0.788);
     border-radius: 10px;
 }
