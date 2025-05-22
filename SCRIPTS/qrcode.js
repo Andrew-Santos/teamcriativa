@@ -87,7 +87,6 @@ function generateQRCode(tipo) {
   }, 50);
 
   const msg = document.createElement("p");
-  msg.innerText = "QR Code gerado com sucesso!";
   msg.style.color = "#CD533B";
   msg.style.fontWeight = "600";
   msg.style.marginTop = "15px";
