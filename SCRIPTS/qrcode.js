@@ -107,7 +107,6 @@ function downloadPDF(valor) {
   const y = 40;
 
   pdf.setFontSize(20);
-  pdf.text("QR Code Gerado", pageWidth / 2, 20, { align: "center" });
 
   const qr = qrcode(0, 'H');
   qr.addData(valor);
