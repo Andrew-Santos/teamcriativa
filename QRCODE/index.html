@@ -107,6 +107,18 @@
   
   <script src="https://www.teamcriativa.com/SCRIPTS/footer.js"></script>
   <script src="../SCRIPTS/qrcode.js"></script>
+  <script>
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>document.addEventListener("DOMContentLoaded", () => {AOS.init();})</script>
   <script src="SCRIPTS/logo.js"></script>
