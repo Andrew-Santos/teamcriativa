@@ -11,7 +11,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: #f4f4f4;
+      background: black;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -28,10 +28,10 @@
 
     #logo-wrapper svg,
     #logo-wrapper #logo {
-      width: 250px;
+      width: 150px;
       height: auto;
       animation: fadeIn 1s ease-in-out;
-      color: rgb(24, 24, 24);
+      color: #f4f4f4;
     }
 
     #loading-dots {
