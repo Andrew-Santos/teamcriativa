@@ -30,7 +30,6 @@
     #logo-wrapper #logo {
       width: 150px;
       height: auto;
-      animation: fadeIn 1s ease-in-out;
       color: #f4f4f4;
     }
 
