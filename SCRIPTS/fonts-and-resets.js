@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         padding: 0;
         box-sizing: border-box;
         list-style-type: none;
-        font-family: Poppins, sans-serif;
         text-decoration: none;
         color: inherit;
     }
