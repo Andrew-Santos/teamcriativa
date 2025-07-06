@@ -28,7 +28,7 @@
 
     #logo-wrapper svg,
     #logo-wrapper #logo {
-      width: 150px;
+      width: 180px;
       height: auto;
       color: #f4f4f4;
     }
