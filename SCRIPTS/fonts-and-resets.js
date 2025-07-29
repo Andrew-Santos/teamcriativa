@@ -19,3 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
   `;
   document.head.appendChild(style);
 });
+
+// favicon-injector.js
+
+(function() {
+  const link = document.createElement('link');
+  link.rel = 'shortcut icon';
+  link.type = 'image/x-icon';
+  link.href = 'https://www.teamcriativa.com/IMAGES/icone.svg';
+  document.head.appendChild(link);
+})();
+
