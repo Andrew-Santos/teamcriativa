@@ -2,19 +2,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   
     // SVG embutido como string (você pode colar aqui o SVG completo real)
-    const svgMarkup = `
-        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+    const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100%" height="100%" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
 viewBox="0 0 423332 97214"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
- <defs>
-  <style type="text/css">
-   <![CDATA[
-    .fil1 {fill:black}
-    .fil0 {fill:black;fill-rule:nonzero}
-   ]]>
-  </style>
- </defs>
+
  <g id="Camada_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
   <g id="_2680723855088">
@@ -32,7 +24,7 @@ viewBox="0 0 423332 97214"
   </g>
  </g>
 </svg>
-  
+
     `;
   
     // Seleciona todos os elementos <img> com id="logo" no HTML
