@@ -147,5 +147,5 @@
   setTimeout(() => {
     document.body.classList.remove("hidden-content");
     preloader.remove();
-  }, 3000);
+  }, 2000);
 });
