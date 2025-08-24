@@ -3,13 +3,13 @@
   "short_name": "Criativa",
   "icons": [
     {
-      "src": "/http://teamcriativa.com/ICONES/web-app-manifest-192x192.png",
+      "src": "https://teamcriativa.com/ICONES/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/http://teamcriativa.com/ICONES/web-app-manifest-512x512.png",
+      "src": "https://teamcriativa.com/ICONES/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
