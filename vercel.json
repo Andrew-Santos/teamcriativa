@@ -1,3 +1,9 @@
 {
-  "buildCommand": "npm install"
+  "buildCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/callback",
+      "destination": "/callback/index.html"
+    }
+  ]
 }
