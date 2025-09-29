@@ -1,3 +1,14 @@
+export default async function handler(req, res) {
+    // 🧪 DEBUG - remova depois
+    console.log('Variáveis disponíveis:', {
+        clientId: !!process.env.INSTAGRAM_CLIENT_ID,
+        clientSecret: !!process.env.INSTAGRAM_CLIENT_SECRET,
+        supabaseUrl: !!process.env.SUPABASE_URL,
+        supabaseKey: !!process.env.SUPABASE_ANON_KEY
+    });
+    
+    // resto do código...
+
 // /api/instagram-auth.js - Backend seguro para Vercel
 import { createClient } from '@supabase/supabase-js';
 
@@ -154,4 +165,5 @@ async function getUserData(accessToken) {
     }
 
     return data;
+
 }
