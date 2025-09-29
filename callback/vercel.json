@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "rewrites": [
-    {
-      "source": "/callback/api/instagram-auth",
-      "destination": "/api/instagram-auth"
-    }
-  ]
-}
