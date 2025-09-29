@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "callback/api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/callback/api/(.*)",
+      "dest": "/callback/api/$1"
+    },
+    {
+      "src": "/callback/?",
+      "dest": "/callback/index.html"
+    }
+  ],
+  "functions": {
+    "callback/api/**/*.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
