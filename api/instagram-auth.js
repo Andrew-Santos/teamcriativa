@@ -20,7 +20,16 @@ export default async function handler(req, res) {
 
     console.log('🚀 Instagram Auth API iniciada');
     console.log('📝 Method:', req.method);
-    console.log('📝 Headers:', JSON.stringify(req.headers, null, 2));
+    
+    // Log de ambiente (debug)
+    console.log('🔍 Node version:', process.version);
+    console.log('🔍 Env check:', {
+        hasSupabaseUrl: !!process.env.SUPABASE_URL,
+        hasSupabaseKey: !!process.env.SUPABASE_SERVICE_KEY,
+        hasInstagramId: !!process.env.INSTAGRAM_CLIENT_ID,
+        hasInstagramSecret: !!process.env.INSTAGRAM_CLIENT_SECRET,
+        hasRedirectUri: !!process.env.REDIRECT_URI
+    });
 
     try {
         const { code, state } = req.body;
@@ -137,11 +146,16 @@ export default async function handler(req, res) {
 
     } catch (error) {
         console.error('❌ Erro na API:', error);
+        console.error('❌ Stack:', error.stack);
+        console.error('❌ Message:', error.message);
         
+        // Retorna erro detalhado
         return res.status(500).json({
             error: 'Erro interno do servidor',
             message: error.message,
-            details: process.env.NODE_ENV === 'development' ? error.stack : undefined
+            type: error.name,
+            // Em produção, você pode querer remover o stack
+            stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
         });
     }
 }
