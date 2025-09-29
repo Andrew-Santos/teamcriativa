@@ -1,25 +1,9 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "callback/api/**/*.js",
-      "use": "@vercel/node"
+      "source": "/callback/api/instagram-auth",
+      "destination": "/api/instagram-auth"
     }
-  ],
-  "routes": [
-    {
-      "src": "/callback/api/(.*)",
-      "dest": "/callback/api/$1"
-    },
-    {
-      "src": "/callback/?",
-      "dest": "/callback/index.html"
-    }
-  ],
-  "functions": {
-    "callback/api/**/*.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  }
+  ]
 }
