@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conectando Instagram...</title>
+    <title>Conectando Instagram - Team Criativa</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -147,11 +146,41 @@
             background: #000000;
             color: #ffffff;
         }
+
+        .debug-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 12px;
+            text-align: left;
+            font-family: monospace;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: #333333;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><i class="ph ph-instagram-logo icon"></i>Processando Instagram</h1>
+        <h1><i class="ph ph-instagram-logo icon"></i>Instagram OAuth - Team Criativa</h1>
         <div class="spinner" id="spinner"></div>
         <div id="status"><i class="ph ph-circle-notch icon"></i>Conectando com Instagram...</div>
         
@@ -171,11 +200,23 @@
         </div>
         
         <div id="userInfo"></div>
+        <div id="debugInfo" class="debug-info" style="display:none;"></div>
+        
+        <a href="https://teamcriativa.com" class="back-link" id="backLink" style="display:none;">
+            <i class="ph ph-arrow-left icon"></i>Voltar para Team Criativa
+        </a>
     </div>
 
     <script>
-        // ✅ FRONTEND SEGURO - sem secrets!
-        
+        // Função para log de debug
+        function debugLog(message) {
+            const debugDiv = document.getElementById('debugInfo');
+            debugDiv.style.display = 'block';
+            const timestamp = new Date().toLocaleTimeString();
+            debugDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            console.log(message);
+        }
+
         // Função para mostrar status
         function showStatus(message, type = 'info', hideSpinner = false) {
             const statusDiv = document.getElementById('status');
@@ -191,6 +232,8 @@
             if (hideSpinner) {
                 document.getElementById('spinner').style.display = 'none';
             }
+            
+            debugLog(`Status: ${type} - ${message}`);
         }
 
         // Função para atualizar progresso
@@ -198,17 +241,14 @@
             const progressDiv = document.getElementById('progress');
             progressDiv.style.display = 'block';
             
-            // Remove active de todos
             document.querySelectorAll('.progress-step').forEach(el => {
                 el.classList.remove('active');
             });
             
-            // Marca como completed os anteriores
             for (let i = 1; i < step; i++) {
                 document.getElementById(`step${i}`).classList.add('completed');
             }
             
-            // Marca atual como active
             document.getElementById(`step${step}`).classList.add('active');
         }
 
@@ -219,26 +259,34 @@
             const error = urlParams.get('error');
             const state = urlParams.get('state');
 
-            // Verifica erros
+            debugLog(`URL atual: ${window.location.href}`);
+            debugLog(`Code presente: ${!!code}`);
+            debugLog(`Error presente: ${!!error}`);
+
             if (error) {
                 showStatus(`Erro na autorização: ${error}`, 'error', true);
+                document.getElementById('backLink').style.display = 'inline-block';
                 return;
             }
 
             if (!code) {
                 showStatus('Código de autorização não encontrado na URL', 'error', true);
+                document.getElementById('backLink').style.display = 'inline-block';
                 return;
             }
 
             try {
                 updateProgress(1);
-                showStatus('Código capturado, processando...', 'info');
+                showStatus('Código capturado com sucesso!', 'info');
                 
                 updateProgress(2);
                 showStatus('Enviando para servidor seguro...', 'info');
                 
-                // ✅ CHAMA BACKEND SEGURO
-                const response = await fetch('/callback/api/instagram-auth.js', {
+                // ✅ API NO CAMINHO CUSTOMIZADO
+                const apiUrl = '/callback/api/instagram-auth';
+                debugLog(`Enviando POST para: ${apiUrl}`);
+                
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -249,21 +297,39 @@
                     })
                 });
 
+                debugLog(`Response status: ${response.status}`);
+                debugLog(`Response ok: ${response.ok}`);
+
+                const responseText = await response.text();
+                debugLog(`Response length: ${responseText.length} chars`);
+
                 if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Erro no servidor');
+                    let errorData;
+                    try {
+                        errorData = JSON.parse(responseText);
+                    } catch (e) {
+                        errorData = { 
+                            error: 'Resposta inválida do servidor', 
+                            status: response.status,
+                            text: responseText.substring(0, 200) 
+                        };
+                    }
+                    throw new Error(errorData.error || `Erro ${response.status}: ${response.statusText}`);
                 }
 
-                const result = await response.json();
+                const result = JSON.parse(responseText);
+                debugLog('Sucesso na API!');
                 
                 updateProgress(4);
-                showStatus('Sucesso! Conta conectada e salva!', 'success', true);
+                showStatus('✅ Conta Instagram conectada e salva com sucesso!', 'success', true);
                 
                 displayUserInfo(result.userData);
+                document.getElementById('backLink').style.display = 'inline-block';
                 
             } catch (error) {
-                showStatus(`Erro: ${error.message}`, 'error', true);
-                console.error('Erro completo:', error);
+                showStatus(`❌ Erro: ${error.message}`, 'error', true);
+                debugLog(`Erro completo: ${error.stack}`);
+                document.getElementById('backLink').style.display = 'inline-block';
             }
         }
 
@@ -277,7 +343,9 @@
                     <p><strong><i class="ph ph-identification-card icon"></i>ID:</strong> ${userData.id}</p>
                     <p><strong><i class="ph ph-user icon"></i>Tipo:</strong> ${userData.account_type}</p>
                     <p><strong><i class="ph ph-images icon"></i>Mídias:</strong> ${userData.media_count || 'N/A'}</p>
-                    <p style="color: #000000; font-weight: bold;"><i class="ph ph-database icon"></i>Salvo no banco de dados!</p>
+                    <p style="color: #000000; font-weight: bold;">
+                        <i class="ph ph-database icon"></i>Dados salvos no Supabase!
+                    </p>
                 </div>
             `;
         }
@@ -286,22 +354,30 @@
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             
+            debugLog('Página callback carregada');
+            debugLog(`Domínio: ${window.location.hostname}`);
+            
             if (urlParams.has('code')) {
-                showStatus('Autorização recebida! Processando automaticamente...', 'info');
+                showStatus('Autorização recebida! Processando...', 'info');
                 processAuth();
             } else if (urlParams.has('error')) {
-                showStatus(`Erro na autorização: ${urlParams.get('error')}`, 'error', true);
+                showStatus(`Erro: ${urlParams.get('error')}`, 'error', true);
+                document.getElementById('backLink').style.display = 'inline-block';
             } else {
-                showStatus('Esta é a página de callback do Instagram.', 'info', true);
+                showStatus('Página de callback do Instagram OAuth', 'info', true);
                 document.getElementById('progress').innerHTML = `
                     <div class="progress-step">
                         <i class="ph ph-info icon"></i>Esta página processa o retorno do Instagram após autorização.
+                    </div>
+                    <div class="progress-step">
+                        <i class="ph ph-link icon"></i>URL de callback configurada para: teamcriativa.com/callback
                     </div>
                     <div class="progress-step">
                         <i class="ph ph-warning icon"></i>Se você chegou aqui diretamente, não há autorização para processar.
                     </div>
                 `;
                 document.getElementById('progress').style.display = 'block';
+                document.getElementById('backLink').style.display = 'inline-block';
             }
         };
     </script>
