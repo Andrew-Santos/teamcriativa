@@ -238,7 +238,7 @@
                 showStatus('Enviando para servidor seguro...', 'info');
                 
                 // ✅ CHAMA BACKEND SEGURO
-                const response = await fetch('/api/instagram-auth', {
+                const response = await fetch('/callback/api/instagram-auth.js', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
