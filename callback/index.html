@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram OAuth - Team Criativa</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            color: #000;
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #f0f0f0;
+            border-top: 3px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            border: 1px solid;
+        }
+
+        .success { background: #000; color: #fff; border-color: #333; }
+        .error { background: #fff; color: #000; border-color: #000; }
+        .info { background: #f8f8f8; color: #000; border-color: #e0e0e0; }
+
+        .user-info {
+            margin-top: 20px;
+            text-align: left;
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .user-info img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 15px;
+            border: 2px solid #000;
+        }
+
+        .user-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .user-info p {
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .icon { margin-right: 8px; }
+
+        .progress {
+            margin: 20px 0;
+        }
+
+        .progress-step {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f8f8;
+            border-radius: 4px;
+            border-left: 4px solid #e0e0e0;
+        }
+
+        .progress-step.active {
+            border-left-color: #000;
+            background: #f0f0f0;
+        }
+
+        .progress-step.completed {
+            border-left-color: #000;
+            background: #000;
+            color: #fff;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><i class="ph ph-instagram-logo icon"></i>Instagram OAuth</h1>
+        <div class="spinner" id="spinner"></div>
+        <div id="status"><i class="ph ph-circle-notch icon"></i>Conectando com Instagram...</div>
+        
+        <div class="progress" id="progress" style="display:none;">
+            <div class="progress-step" id="step1">
+                <i class="ph ph-code icon"></i>Capturando código de autorização
+            </div>
+            <div class="progress-step" id="step2">
+                <i class="ph ph-arrows-clockwise icon"></i>Trocando código por token
+            </div>
+            <div class="progress-step" id="step3">
+                <i class="ph ph-user icon"></i>Obtendo dados do usuário
+            </div>
+            <div class="progress-step" id="step4">
+                <i class="ph ph-database icon"></i>Salvando no banco de dados
+            </div>
+        </div>
+        
+        <div id="userInfo"></div>
+        
+        <a href="https://teamcriativa.com" class="back-link" id="backLink" style="display:none;">
+            <i class="ph ph-arrow-left icon"></i>Voltar
+        </a>
+    </div>
+
+    <script>
+        function showStatus(message, type = 'info', hideSpinner = false) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = `status ${type}`;
+            
+            let icon = '<i class="ph ph-info icon"></i>';
+            if (type === 'success') icon = '<i class="ph ph-check-circle icon"></i>';
+            if (type === 'error') icon = '<i class="ph ph-x-circle icon"></i>';
+            
+            statusDiv.innerHTML = icon + message;
+            
+            if (hideSpinner) {
+                document.getElementById('spinner').style.display = 'none';
+            }
+        }
+
+        function updateProgress(step) {
+            document.getElementById('progress').style.display = 'block';
+            document.querySelectorAll('.progress-step').forEach(el => el.classList.remove('active'));
+            
+            for (let i = 1; i < step; i++) {
+                document.getElementById(`step${i}`).classList.add('completed');
+            }
+            
+            document.getElementById(`step${step}`).classList.add('active');
+        }
+
+        async function processAuth() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const error = urlParams.get('error');
+
+            if (error) {
+                showStatus(`Erro na autorização: ${error}`, 'error', true);
+                document.getElementById('backLink').style.display = 'inline-block';
+                return;
+            }
+
+            if (!code) {
+                showStatus('Código de autorização não encontrado', 'error', true);
+                document.getElementById('backLink').style.display = 'inline-block';
+                return;
+            }
+
+            try {
+                updateProgress(1);
+                showStatus('Código capturado com sucesso');
+                
+                updateProgress(2);
+                showStatus('Enviando para servidor...');
+                
+                const response = await fetch('/api/instagram-auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: code })
+                });
+
+                const responseText = await response.text();
+                
+                if (!response.ok) {
+                    let errorData;
+                    try {
+                        errorData = JSON.parse(responseText);
+                    } catch (e) {
+                        throw new Error(`Erro ${response.status}: ${responseText}`);
+                    }
+                    throw new Error(errorData.error || errorData.message || 'Erro desconhecido');
+                }
+
+                const result = JSON.parse(responseText);
+                
+                updateProgress(4);
+                showStatus('Conta conectada com sucesso!', 'success', true);
+                
+                displayUserInfo(result.userData);
+                document.getElementById('backLink').style.display = 'inline-block';
+                
+            } catch (error) {
+                showStatus(`Erro: ${error.message}`, 'error', true);
+                console.error('Erro:', error);
+                document.getElementById('backLink').style.display = 'inline-block';
+            }
+        }
+
+        function displayUserInfo(userData) {
+            document.getElementById('userInfo').innerHTML = `
+                <div class="user-info clearfix">
+                    <img src="https://via.placeholder.com/60x60/000000/ffffff?text=${userData.username[0].toUpperCase()}" alt="Avatar">
+                    <h3><i class="ph ph-check-circle icon"></i>@${userData.username}</h3>
+                    <p><strong><i class="ph ph-identification-card icon"></i>ID:</strong> ${userData.id}</p>
+                    <p><strong><i class="ph ph-user icon"></i>Tipo:</strong> ${userData.account_type}</p>
+                    <p><strong><i class="ph ph-images icon"></i>Mídias:</strong> ${userData.media_count || 'N/A'}</p>
+                    <p style="color: #000; font-weight: bold;">
+                        <i class="ph ph-database icon"></i>Salvo no Supabase
+                    </p>
+                </div>
+            `;
+        }
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.has('code')) {
+                showStatus('Autorização recebida! Processando...');
+                processAuth();
+            } else if (urlParams.has('error')) {
+                showStatus(`Erro: ${urlParams.get('error')}`, 'error', true);
+                document.getElementById('backLink').style.display = 'inline-block';
+            } else {
+                showStatus('Página de callback do Instagram', 'info', true);
+                document.getElementById('backLink').style.display = 'inline-block';
+            }
+        };
+    </script>
+</body>
+</html>
