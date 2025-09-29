@@ -1,9 +1,9 @@
 {
   "buildCommand": "npm install",
-  "rewrites": [
+  "routes": [
     {
-      "source": "/callback",
-      "destination": "/callback/index.html"
+      "src": "/callback",
+      "dest": "/callback/index.html"
     }
   ]
 }
