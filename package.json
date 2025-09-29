@@ -1,6 +1,16 @@
 {
+  "name": "teamcriativa-instagram-oauth",
+  "version": "1.0.0",
+  "description": "Sistema de autenticação Instagram para Team Criativa",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Build complete'"
+  },
   "dependencies": {
-    "@supabase/supabase-js": "^2.38.0",
-    "form-data": "^4.0.0"
+    "@supabase/supabase-js": "^2.38.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

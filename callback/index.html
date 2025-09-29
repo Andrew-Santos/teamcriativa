@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conectando Instagram - Team Criativa</title>
+    <title>Instagram OAuth - Team Criativa</title>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
         
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: #000000;
-            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .container {
-            background: #ffffff;
-            color: #000000;
+            background: #fff;
+            color: #000;
             border-radius: 8px;
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
             max-width: 500px;
             width: 100%;
             text-align: center;
@@ -34,7 +34,6 @@
         h1 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            color: #000000;
             margin-bottom: 20px;
         }
 
@@ -42,7 +41,7 @@
             width: 40px;
             height: 40px;
             border: 3px solid #f0f0f0;
-            border-top: 3px solid #000000;
+            border-top: 3px solid #000;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 20px auto;
@@ -58,33 +57,17 @@
             padding: 15px;
             border-radius: 6px;
             font-weight: 500;
-            font-family: 'Inter', sans-serif;
             border: 1px solid;
         }
 
-        .success {
-            background-color: #000000;
-            color: #ffffff;
-            border-color: #333333;
-        }
-
-        .error {
-            background-color: #ffffff;
-            color: #000000;
-            border-color: #000000;
-        }
-
-        .info {
-            background-color: #f8f8f8;
-            color: #000000;
-            border-color: #e0e0e0;
-        }
+        .success { background: #000; color: #fff; border-color: #333; }
+        .error { background: #fff; color: #000; border-color: #000; }
+        .info { background: #f8f8f8; color: #000; border-color: #e0e0e0; }
 
         .user-info {
             margin-top: 20px;
             text-align: left;
             background: #f8f8f8;
-            color: #000000;
             padding: 20px;
             border-radius: 6px;
             border: 1px solid #e0e0e0;
@@ -96,19 +79,17 @@
             border-radius: 50%;
             float: left;
             margin-right: 15px;
-            border: 2px solid #000000;
+            border: 2px solid #000;
         }
 
         .user-info h3 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            color: #000000;
             margin: 0;
         }
 
         .user-info p {
-            font-family: 'Inter', sans-serif;
-            color: #333333;
+            color: #333;
             margin: 5px 0;
         }
 
@@ -118,10 +99,7 @@
             clear: both;
         }
 
-        .icon {
-            display: inline-block;
-            margin-right: 8px;
-        }
+        .icon { margin-right: 8px; }
 
         .progress {
             margin: 20px 0;
@@ -133,39 +111,25 @@
             background: #f8f8f8;
             border-radius: 4px;
             border-left: 4px solid #e0e0e0;
-            font-family: 'Inter', sans-serif;
         }
 
         .progress-step.active {
-            border-left-color: #000000;
+            border-left-color: #000;
             background: #f0f0f0;
         }
 
         .progress-step.completed {
-            border-left-color: #000000;
-            background: #000000;
-            color: #ffffff;
-        }
-
-        .debug-info {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f8f8f8;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 12px;
-            text-align: left;
-            font-family: monospace;
-            max-height: 200px;
-            overflow-y: auto;
+            border-left-color: #000;
+            background: #000;
+            color: #fff;
         }
 
         .back-link {
             margin-top: 20px;
             display: inline-block;
             padding: 10px 20px;
-            background: #000000;
-            color: #ffffff;
+            background: #000;
+            color: #fff;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
@@ -173,14 +137,14 @@
         }
 
         .back-link:hover {
-            background: #333333;
+            background: #333;
             transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><i class="ph ph-instagram-logo icon"></i>Instagram OAuth - Team Criativa</h1>
+        <h1><i class="ph ph-instagram-logo icon"></i>Instagram OAuth</h1>
         <div class="spinner" id="spinner"></div>
         <div id="status"><i class="ph ph-circle-notch icon"></i>Conectando com Instagram...</div>
         
@@ -200,24 +164,13 @@
         </div>
         
         <div id="userInfo"></div>
-        <div id="debugInfo" class="debug-info" style="display:none;"></div>
         
         <a href="https://teamcriativa.com" class="back-link" id="backLink" style="display:none;">
-            <i class="ph ph-arrow-left icon"></i>Voltar para Team Criativa
+            <i class="ph ph-arrow-left icon"></i>Voltar
         </a>
     </div>
 
     <script>
-        // Função para log de debug
-        function debugLog(message) {
-            const debugDiv = document.getElementById('debugInfo');
-            debugDiv.style.display = 'block';
-            const timestamp = new Date().toLocaleTimeString();
-            debugDiv.innerHTML += `[${timestamp}] ${message}<br>`;
-            console.log(message);
-        }
-
-        // Função para mostrar status
         function showStatus(message, type = 'info', hideSpinner = false) {
             const statusDiv = document.getElementById('status');
             statusDiv.className = `status ${type}`;
@@ -225,25 +178,17 @@
             let icon = '<i class="ph ph-info icon"></i>';
             if (type === 'success') icon = '<i class="ph ph-check-circle icon"></i>';
             if (type === 'error') icon = '<i class="ph ph-x-circle icon"></i>';
-            if (type === 'info') icon = '<i class="ph ph-circle-notch icon"></i>';
             
             statusDiv.innerHTML = icon + message;
             
             if (hideSpinner) {
                 document.getElementById('spinner').style.display = 'none';
             }
-            
-            debugLog(`Status: ${type} - ${message}`);
         }
 
-        // Função para atualizar progresso
         function updateProgress(step) {
-            const progressDiv = document.getElementById('progress');
-            progressDiv.style.display = 'block';
-            
-            document.querySelectorAll('.progress-step').forEach(el => {
-                el.classList.remove('active');
-            });
+            document.getElementById('progress').style.display = 'block';
+            document.querySelectorAll('.progress-step').forEach(el => el.classList.remove('active'));
             
             for (let i = 1; i < step; i++) {
                 document.getElementById(`step${i}`).classList.add('completed');
@@ -252,16 +197,10 @@
             document.getElementById(`step${step}`).classList.add('active');
         }
 
-        // Processar autorização via backend
         async function processAuth() {
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get('code');
             const error = urlParams.get('error');
-            const state = urlParams.get('state');
-
-            debugLog(`URL atual: ${window.location.href}`);
-            debugLog(`Code presente: ${!!code}`);
-            debugLog(`Error presente: ${!!error}`);
 
             if (error) {
                 showStatus(`Erro na autorização: ${error}`, 'error', true);
@@ -270,119 +209,80 @@
             }
 
             if (!code) {
-                showStatus('Código de autorização não encontrado na URL', 'error', true);
+                showStatus('Código de autorização não encontrado', 'error', true);
                 document.getElementById('backLink').style.display = 'inline-block';
                 return;
             }
 
             try {
                 updateProgress(1);
-                showStatus('Código capturado com sucesso!', 'info');
+                showStatus('Código capturado com sucesso');
                 
                 updateProgress(2);
-                showStatus('Enviando para servidor seguro...', 'info');
+                showStatus('Enviando para servidor...');
                 
-                // ✅ API NO CAMINHO CUSTOMIZADO
-                const apiUrl = '/callback/api/instagram-auth';
-                debugLog(`Enviando POST para: ${apiUrl}`);
-                
-                const response = await fetch(apiUrl, {
+                const response = await fetch('/api/instagram-auth', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        code: code,
-                        state: state
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: code })
                 });
 
-                debugLog(`Response status: ${response.status}`);
-                debugLog(`Response ok: ${response.ok}`);
-
                 const responseText = await response.text();
-                debugLog(`Response length: ${responseText.length} chars`);
-                debugLog(`Response text: ${responseText}`); // ← ADICIONE ESTA LINHA
-
-
+                
                 if (!response.ok) {
                     let errorData;
                     try {
                         errorData = JSON.parse(responseText);
                     } catch (e) {
-                        errorData = { 
-                            error: 'Resposta inválida do servidor', 
-                            status: response.status,
-                            text: responseText.substring(0, 200) 
-                        };
+                        throw new Error(`Erro ${response.status}: ${responseText}`);
                     }
-                    throw new Error(errorData.error || `Erro ${response.status}: ${response.statusText}`);
+                    throw new Error(errorData.error || errorData.message || 'Erro desconhecido');
                 }
 
                 const result = JSON.parse(responseText);
-                debugLog('Sucesso na API!');
                 
                 updateProgress(4);
-                showStatus('✅ Conta Instagram conectada e salva com sucesso!', 'success', true);
+                showStatus('Conta conectada com sucesso!', 'success', true);
                 
                 displayUserInfo(result.userData);
                 document.getElementById('backLink').style.display = 'inline-block';
                 
             } catch (error) {
-                showStatus(`❌ Erro: ${error.message}`, 'error', true);
-                debugLog(`Erro completo: ${error.stack}`);
+                showStatus(`Erro: ${error.message}`, 'error', true);
+                console.error('Erro:', error);
                 document.getElementById('backLink').style.display = 'inline-block';
             }
         }
 
-        // Exibir informações do usuário
         function displayUserInfo(userData) {
-            const userInfoDiv = document.getElementById('userInfo');
-            userInfoDiv.innerHTML = `
+            document.getElementById('userInfo').innerHTML = `
                 <div class="user-info clearfix">
                     <img src="https://via.placeholder.com/60x60/000000/ffffff?text=${userData.username[0].toUpperCase()}" alt="Avatar">
                     <h3><i class="ph ph-check-circle icon"></i>@${userData.username}</h3>
                     <p><strong><i class="ph ph-identification-card icon"></i>ID:</strong> ${userData.id}</p>
                     <p><strong><i class="ph ph-user icon"></i>Tipo:</strong> ${userData.account_type}</p>
                     <p><strong><i class="ph ph-images icon"></i>Mídias:</strong> ${userData.media_count || 'N/A'}</p>
-                    <p style="color: #000000; font-weight: bold;">
-                        <i class="ph ph-database icon"></i>Dados salvos no Supabase!
+                    <p style="color: #000; font-weight: bold;">
+                        <i class="ph ph-database icon"></i>Salvo no Supabase
                     </p>
                 </div>
             `;
         }
 
-        // Auto-processar quando há código na URL
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             
-            debugLog('Página callback carregada');
-            debugLog(`Domínio: ${window.location.hostname}`);
-            
             if (urlParams.has('code')) {
-                showStatus('Autorização recebida! Processando...', 'info');
+                showStatus('Autorização recebida! Processando...');
                 processAuth();
             } else if (urlParams.has('error')) {
                 showStatus(`Erro: ${urlParams.get('error')}`, 'error', true);
                 document.getElementById('backLink').style.display = 'inline-block';
             } else {
-                showStatus('Página de callback do Instagram OAuth', 'info', true);
-                document.getElementById('progress').innerHTML = `
-                    <div class="progress-step">
-                        <i class="ph ph-info icon"></i>Esta página processa o retorno do Instagram após autorização.
-                    </div>
-                    <div class="progress-step">
-                        <i class="ph ph-link icon"></i>URL de callback configurada para: teamcriativa.com/callback
-                    </div>
-                    <div class="progress-step">
-                        <i class="ph ph-warning icon"></i>Se você chegou aqui diretamente, não há autorização para processar.
-                    </div>
-                `;
-                document.getElementById('progress').style.display = 'block';
+                showStatus('Página de callback do Instagram', 'info', true);
                 document.getElementById('backLink').style.display = 'inline-block';
             }
         };
     </script>
 </body>
-
 </html>
