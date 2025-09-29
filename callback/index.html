@@ -302,6 +302,8 @@
 
                 const responseText = await response.text();
                 debugLog(`Response length: ${responseText.length} chars`);
+                debugLog(`Response text: ${responseText}`); // ← ADICIONE ESTA LINHA
+
 
                 if (!response.ok) {
                     let errorData;
@@ -382,4 +384,5 @@
         };
     </script>
 </body>
+
 </html>
